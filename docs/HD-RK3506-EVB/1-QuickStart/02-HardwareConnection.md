@@ -34,17 +34,17 @@ flowchart TD
 ### 2.1 电源供电
 
 - 使用电源适配器或电脑USB连接Type-C 至 **HD-RK3506-EVB**，系统电源灯**红灯常亮**。
-
 - 等待系统启动完成，当系统启动完成后，系统运行指示灯**蓝色灯闪烁**。
+- <span style={{ color: "#ff0000" }}>图中Type-C连接线，接入电脑USB口；或连接5V/1A电源。</span>
 
 <img src={require('./images/02-hardwareconnection-02.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" style={{display: 'block', margin: '20px auto', maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ### 2.2 串口连接
 
-- 使用串口模块连接开发板。
-- 串口模块的 TX 接入 HD-RK3506-EVB 的 RX。
-- 串口模块的 RX 接入 HD-RK3506-EVB 的 TX。
-- 串口模块的 GND 接入 HD-RK3506-EVB的 GND。
+- 使用串口模块（TTL转USB模块）连接开发板。
+- 串口模块的 TX 接入 HD-RK3506-EVB 的 RX（<span style={{ color: "#ff0000" }}> 红色杜邦线</span>）。
+- 串口模块的 RX 接入 HD-RK3506-EVB 的 TX（<span style={{ color: "\#008000" }}> 绿色杜邦线</span>）。
+- 串口模块的 GND 接入 HD-RK3506-EVB的 GND（<span style={{ color: "\#ffc107" }}> 黄色杜邦线</span>）。
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '10px', margin: '20px 0'}}>
   <img src={require('./images/02-hardwareconnection-03.png').default} alt="调试串口" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
@@ -78,6 +78,6 @@ flowchart TD
   <img src={require('./images/rgb.jpg').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 </div>
 
-  
 
-  
+
+

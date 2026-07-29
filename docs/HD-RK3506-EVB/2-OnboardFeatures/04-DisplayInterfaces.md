@@ -8,17 +8,26 @@ sidebar_position: 4
 
 本指南将指导您如何使用 **RK3506-EVB** 的 **显示** 功能。
 
-
 :::
 
-## 1. 液晶显示
+## 1. 上电显示
+
+​	上电后，7寸的MIPI屏和5寸的RGB屏，均显示lvgl程序demo，显示内容如下图所示。
+
+<div style={{display: 'flex', justifyContent: 'center', gap: '00px', margin: '20px 0'}}>
+  <img src={require('./images/mipi.png').default} alt="USB供电烧录" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/rgb.png').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+</div>
+
+## 2. 液晶显示
 
   Rockchip 平台从 Linux 4.4 内核开始，显示驱动全部切到 DRM 显示框架。
 
-DRM 全称是 Direct Rendering Manager，进行显示输出管理、buffer 分配、帧缓冲。对应的 userspace 库为 libdrm，libdrm 库提供了一系列友好的控制封装，使用户可以方便的进行显示的控制和 buffer 申请。DRM 的设备节点为 "/dev/dri/cardX"， X 为 0-15 的数值，默认使用的/dev/dri/card0。  
-一般对于drm显示设备测试使用modetest工具。
+  DRM 全称是 Direct Rendering Manager，进行显示输出管理、buffer 分配、帧缓冲。对应的 userspace 库为 libdrm，libdrm 库提供了一系列友好的控制封装，使用户可以方便的进行显示的控制和 buffer 申请。DRM 的设备节点为 "/dev/dri/cardX"， X 为 0-15 的数值，默认使用的/dev/dri/card0.
 
-查看drm系统的基础状态：
+  一般对于drm显示设备测试使用modetest工具。
+
+  查看drm系统的基础状态：
 
 ```shell
 root@rk3506-buildroot:/# modetest -M rockchip
@@ -53,26 +62,23 @@ Frame buffers:
 id      size    pitch
 ```
 
-第一部分的 Encoders 输出和第二部分的 Connectors 对应，从 Dump 输出我们可以看到：
+  第一部分的 Encoders 输出和第二部分的 Connectors 对应，从 Dump 输出我们可以看到：
 
-Connector DSI-1 的 id 为 75，它对应的 Encoder id 为 74，且它处于 connected 的状态，说明底层驱动已经检测到了该 DSI 接口上已经有显示设备连接，modes 是驱动上报的对应显示设备支持的分辨率。
+  Connector DSI-1 的 id 为 75，它对应的 Encoder id 为 74，且它处于 connected 的状态，说明底层驱动已经检测到了该 DSI 接口上已经有显示设备连接，modes 是驱动上报的对应显示设备支持的分辨率。
 
-CRTC 对应 VOP 2.0 中的 Video Port 或者 VOP 1.0 中的 vop(RK3506使用VOP 1.0)。
+  CRTC 对应 VOP 2.0 中的 Video Port 或者 VOP 1.0 中的 vop(RK3506使用VOP 1.0)。
 
-Planes 对应图层，列出的信息包含该图层可以在哪几个 VP 之间切换（ possible crtcs ）以及所支持的格式( formats )。
-
-**​**  
+  Planes 对应图层，列出的信息包含该图层可以在哪几个 VP 之间切换（ possible crtcs ）以及所支持的格式( formats )。
 
 > **注意：HD-RK3506-EVB 支持MIPI显示和RGB显示，MIPI显示和RGB显示不能同时使用。出厂固件默认显示MIPI，驱动万象奥科7寸MIPI屏，分辨率为1024x600。**
->
 
-以MIPI显示为例，检测到drm正常后，输入如下指令后可以在显示屏上输出彩条:
+  以MIPI显示为例，检测到drm正常后，输入如下指令后可以在显示屏上输出彩条:
 
 ```shell
 modetest -M rockchip -s 75@72:1024x600
 ```
 
-通过上述命令，可以在DSI上显示类似下边的smpte彩条，其中75是DPI-1的id,72是VOP1的id。
+  通过上述命令，可以在DSI上显示类似下边的smpte彩条，其中75是DPI-1的id,72是VOP1的id。
 
 <img src={require('./images/04-displayinterfaces-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 

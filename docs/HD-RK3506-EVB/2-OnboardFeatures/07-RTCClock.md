@@ -12,7 +12,8 @@ sidebar_position: 7
 :::
 
 > 注：HD-RK3506-EVB板载RTC，但未预装RTC电池（CR2032），购买开发板时赠送RTC电池，用户可接上电池，体验RTC功能。
->
+
+<img src={require('./images/rtc.png').default} alt="网口.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 1. 设置时钟
 

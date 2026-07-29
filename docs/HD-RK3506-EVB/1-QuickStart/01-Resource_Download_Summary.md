@@ -6,17 +6,15 @@
 
 :::
 
-<img src={require('./images/001.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" style={{display: 'block', margin: '20px auto', maxWidth: '40%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/nand.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" style={{display: 'block', margin: '20px auto', maxWidth: '40%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 1. 软件参考资料
 
 | 类目             | 系统          | 存储     | 下载                                                         | 备注                                      |
 | ---------------- | ------------- | -------- | ------------------------------------------------------------ | ----------------------------------------- |
 | ⚙系统固件        | 📘 Linux       | NAND     | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781675896674-6a128896-ccd7-412f-be3b-e59b9b7752b9.zip) | 适配**5寸RGB**显示屏幕，分辨率为800x480   |
-|                  | 📘 Linux       | NAND     | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781675984683-658a99e4-e172-462b-9edb-190bf47e9915.zip) | 适配**7寸RGB**显示屏幕，分辨率为1024*600  |
 |                  | 📘 Linux       | NAND     | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781675995669-6b2d2bc9-cd66-40a3-85b4-cbdf240045b3.zip) | 适配**7寸MIPI**显示屏幕，分辨率为1024*600 |
 |                  | 📘 Linux       | SD卡启动 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781676002757-75b53f43-026d-4591-bfc6-24e166c5e438.zip) | 适配**5寸RGB**显示屏幕，分辨率为800x480   |
-|                  | 📘 Linux       | SD卡启动 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781676008762-2d1872d9-a2fb-427a-adf7-cc90c4bc4bdf.zip) | 适配**7寸RGB**显示屏幕，分辨率为1024*600  |
 |                  | 📘 Linux       | SD卡启动 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1781676023033-fd352204-7ce9-4cc1-a662-df7e1d048f45.zip) | 适配**7寸MIPI**显示屏幕，分辨率为1024*600 |
 | 🛠 刷机软件及驱动 | 📒 刷机软件    |          | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1770615744575-15f8ac14-b978-4a61-825f-9f5185778bff.zip) | RKDevTool_Release_v3.32.zip               |
 |                  | 📒 刷机驱动    |          | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1770615745010-974ab8a1-a244-48cf-84fb-ec4690ef5eab.zip) | DriverAssitant_v5.13.zip                  |
@@ -34,18 +32,23 @@
 | 产品型号 | **类目** | **下载** | **备注** |
 | --- | --- | --- | --- |
 | HD-RK3506G-CORE V1.0 | 📗DXF结构文件 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/rar/35275148/1770615746260-0d5ed711-ef3c-46a0-8c21-8fa68033be36.rar) | 【结构文件】HD-RK3506G-CORE V1.0.rar |
-|  | 📗丝印图 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/rar/35275148/1770615746694-8ddb3bba-5b0a-468e-8583-bd8868c200f6.rar) | 【装配图】HD-RK3506G-CORE V1.0.rar |
+| 核心板如下左图所示 | 📗丝印图 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/rar/35275148/1770615746694-8ddb3bba-5b0a-468e-8583-bd8868c200f6.rar) | 【装配图】HD-RK3506G-CORE V1.0.rar |
 |  | 📗数据手册 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/pdf/35275148/1770615746919-9a3d7ecc-abe7-44f5-ad98-1a6540222064.pdf) | 【数据手册】HD-RK3506G-CORE V1.0.pdf |
 |  | 📗管脚分配表 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/xlsx/35275148/1770615747257-4d32a70c-e12a-4781-b647-ebacdb94b61e.xlsx) | 【引脚列表】HD-RK3506G-CORE V1.0.xlsx |
 
 ---
+
+<div style={{display: 'flex', justifyContent: 'center', gap: '20px', margin: '20px 0'}}>
+  <img src={require('./images/core.png').default} alt="USB供电烧录" style={{maxWidth: '40%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/evb.png').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+</div>
 
 ### 2.2 HD-RK3506-EVB 底板
 
 | 产品型号 | **类目** | **下载** | **备注** |
 | --- | --- | --- | --- |
 | HD-RK3506-EVB V1.1 | 📗数据手册 | [点击下载](https://vanxoak.yuque.com/wb353n/hd-rk3506-evb/do2o7pvzmxdxhz3h) | HD-RK3506-EVB底板数据手册 |
-|  | 📗原理图PDF | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/pdf/12921578/1770771434742-1b447e60-16dc-4b43-a37f-90daacea3922.pdf) | SCH_HD-RK3506-EVB-V1.1.pdf |
+| 底板如上右图所示 | 📗原理图PDF | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/pdf/12921578/1770771434742-1b447e60-16dc-4b43-a37f-90daacea3922.pdf) | SCH_HD-RK3506-EVB-V1.1.pdf |
 |  | 📗立创EDA工程文件 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/12927563/1784514946743-833cb43a-da17-49c6-9746-904b6913dc4a.zip) | 使用立创EDA专业版，包含原理图与PCB工程 |
 |  | 📗封装库 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/35275148/1770615749097-430b5522-151d-44c6-9ab6-2335abe2d2bb.zip) | 器件封装库.zip |
 |  | 📗芯片手册 | [点击下载](https://vanxoak.yuque.com/attachments/yuque/0/2026/pdf/35275148/1770615749272-8cff1016-9d79-4885-88d7-0c371ae7bced.pdf) | Rockchip RK3506G2 Datasheet V1.0-20240816.pdf |

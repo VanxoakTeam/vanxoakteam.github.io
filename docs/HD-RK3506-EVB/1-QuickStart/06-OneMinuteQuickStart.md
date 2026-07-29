@@ -14,30 +14,13 @@ sidebar_position: 6
 
 ## 1. 查看磁盘和内存大小
 
-  使用df命令查看系统上磁盘使用情况，如下为默认磁盘使用情况，仅供参考。
+  使用 `df -h` 命令查看系统上磁盘使用情况，如下为默认磁盘使用情况，仅供参考。
 
-```shell
-root@rk3506-buildroot:/# df -h
-Filesystem                Size      Used Available Use% Mounted on
-ubi0:rootfs             136.5M     72.0M     64.5M  53% /
-devtmpfs                 48.7M         0     48.7M   0% /dev
-tmpfs                    48.8M    100.0K     48.7M   0% /var/log
-tmpfs                    48.8M      8.0K     48.8M   0% /tmp
-tmpfs                    48.8M    144.0K     48.7M   0% /run
-tmpfs                    48.8M         0     48.8M   0% /dev/shm
-/dev/ubi6_0               7.6M    140.0K      7.5M   2% /oem
-/dev/ubi7_0              29.2M    320.0K     28.9M   1% /userdata
-```
+<img src={require('./images/df.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
-  使用free命令查看内存使用情况，如下所示。
+  使用 `free -h` 命令查看内存使用情况，如下所示。
 
-```shell
-root@rk3506-buildroot:/# free -h
-              total        used        free      shared  buff/cache   available
-Mem:          97.6M       27.8M       46.7M      252.0K       23.1M       64.6M
-Swap:             0           0           0
-
-```
+<img src={require('./images/free.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 2. 关机和重启
 
@@ -59,107 +42,35 @@ root@rk3506-buildroot:/# reboot
 
 ## 3. 查看内核版本
 
-  使用`uname -a`命令可以查看内核版本信息：
+  使用 `uname -a` 命令可以查看内核版本信息：
 
-```shell
-root@rk3506-buildroot:/# uname -a
-Linux rk3506-buildroot 6.1.99 #16 SMP PREEMPT Tue Dec 31 10:58:14 CST 2024 armv7l GNU/Linux
-```
+<img src={require('./images/uname.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
-  也可以通过查看`/proc/version` 文件，获得系统内核版本信息：
+  也可以通过查看 `/proc/version`  文件，获得系统内核版本信息：
 
-```shell
-root@rk3506-buildroot:/# cat /proc/version
-Linux version 6.1.99 (vanxoak@6fe447f5e3d9) (arm-none-linux-gnueabihf-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #16 SMP PREEMPT Tue Dec 31 10:58:14 CST 2024
-```
-
-  
+<img src={require('./images/version.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 4. 查看磁盘分区信息
 
-  通过查看`/proc/partitions` 文件，可以获得系统所有的分区信息：
+  通过查看 `/proc/partitions`  文件，可以获得系统所有的分区信息：
 
-```shell
-root@rk3506-buildroot:/# cat /proc/partitions
-major minor  #blocks  name
-
-  31        0       1024 mtdblock0
-  31        1       4096 mtdblock1
-  31        2       1024 mtdblock2
-  31        3      20480 mtdblock3
-  31        4      10240 mtdblock4
-  31        5     163840 mtdblock5
-  31        6      16384 mtdblock6
-  31        7      41344 mtdblock7
-```
+<img src={require('./images/partitions.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 5. 查看CPU信息
 
-  通过查看`/proc/cpuinfo`文件，可以获得CPU等信息：
+  通过查看 `/proc/cpuinfo` 文件，可以获得CPU等信息：
 
   其中CPU Serial为CPU的唯一ID，即使是重新刷机，这个唯一ID也不会变。
 
-```shell
-root@rk3506-buildroot:/# cat /proc/cpuinfo
-processor       : 0
-model name      : ARMv7 Processor rev 5 (v7l)
-BogoMIPS        : 48.00
-Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae 
-CPU implementer : 0x41
-CPU architecture: 7
-CPU variant     : 0x0
-CPU part        : 0xc07
-CPU revision    : 5
-
-processor       : 1
-model name      : ARMv7 Processor rev 5 (v7l)
-BogoMIPS        : 48.00
-Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae 
-CPU implementer : 0x41
-CPU architecture: 7
-CPU variant     : 0x0
-CPU part        : 0xc07
-CPU revision    : 5
-
-processor       : 2
-model name      : ARMv7 Processor rev 5 (v7l)
-BogoMIPS        : 48.00
-Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae 
-CPU implementer : 0x41
-CPU architecture: 7
-CPU variant     : 0x0
-CPU part        : 0xc07
-CPU revision    : 5
-
-Hardware        : Generic DT based system
-Revision        : 0000
-Serial          : d3fb587707590f26
-```
+<img src={require('./images/cpuinfo.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
   其中`BogoMIPS`参数可以用来衡量处理器的运算能力，表示CPU每秒钟可以处理的指令数，单位百万。
 
 ## 6. 查看挂载信息
 
-  通过查看`mount`命令，可以获得文件系统的挂载信息：
+  通过查看 `mount` 命令，可以获得文件系统的挂载信息：
 
-```shell
-root@rk3506-buildroot:/# mount
-ubi0:rootfs on / type ubifs (rw,relatime,assert=read-only,ubi=0,vol=0)
-devtmpfs on /dev type devtmpfs (rw,relatime,size=49880k,nr_inodes=12470,mode=755)
-sysfs on /sys type sysfs (rw,relatime)
-tmpfs on /var/log type tmpfs (rw,relatime)
-tmpfs on /tmp type tmpfs (rw,relatime)
-tmpfs on /run type tmpfs (rw,relatime)
-proc on /proc type proc (rw,relatime)
-devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=000)
-tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime)
-configfs on /sys/kernel/config type configfs (rw,relatime)
-debugfs on /sys/kernel/debug type debugfs (rw,relatime)
-pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
-/dev/ubi7_0 on /userdata type ubifs (rw,relatime,assert=read-only,ubi=7,vol=0)
-/dev/ubi6_0 on /oem type ubifs (rw,relatime,assert=read-only,ubi=6,vol=0)
-adb on /dev/usb-ffs/adb type functionfs (rw,relatime)
-```
+<img src={require('./images/mount.png').default} alt="" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 
 ## 7. 心跳灯的操控
 

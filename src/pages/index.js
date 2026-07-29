@@ -26,16 +26,10 @@ const sections = [
     number: '04',
     title: '编译环境',
     description: '搭建开发主机、获取 SDK 并完成系统编译。',
-    path: '/docs/HD-RK3506-EVB/BuildEnvironment/DevelopmentHostSetup',
+    path: '/docs/HD-RK3506-EVB/QuickStart/DevelopmentHostSetup',
   },
   {
     number: '05',
-    title: '驱动开发',
-    description: '学习 UART、SPI、PWM、I2C、CAN 等驱动开发。',
-    path: '/docs/HD-RK3506-EVB/DriverDevelopment/HelloWorldDriverIntroduction',
-  },
-  {
-    number: '06',
     title: '系统开发',
     description: '了解 OTA、SD 卡启动、UVC 摄像头与远程登录。',
     path: '/docs/HD-RK3506-EVB/SystemDevelopment/OTAUpgradeGuide',
