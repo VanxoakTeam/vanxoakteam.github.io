@@ -14,7 +14,7 @@ sidebar_position: 6
 HD-RK3506-EVB开发板除了提供TTL电平的调试串口外，还提供了3个TTL电平的串口供用户使用：
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '0px', margin: '20px 0'}}>
-  <img src={require('./images/06-serialportusage-01.png').default} alt="开发板" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/gpio.png').default} alt="开发板" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
   <img src={require('./images/06-serialportusage-02.png').default} alt="原理图" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
 </div>
 

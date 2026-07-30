@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # SSH 网络远程登录指南
@@ -12,6 +12,10 @@ sidebar_position: 4
 :::
 
   当用户当前使用环境没有USB转TTL串口模块时，可以在系统启动完成后（从上电后约等待15s左右），使用网络SSH登录到shell命令行进行调试；
+
+> <span style={{ color: "#ff0000" }}>注意：PC机要与HD-RK3506-EVB板在同一个网段内，否则SSH会因PC机与板卡不能通讯而无法登录。</span>
+>
+> <span style={{ color: "#ff0000" }}>例如：当前板卡默认IP为192.168.1.10，则PC机也要设置一个192.168.1.xx的网段。</span>
 
 ## 1. 网络环境准备
 
@@ -97,7 +101,3 @@ netmask 255.255.255.0
   如下为正常登录SSH后的Shell命令行；
 
 <img src={require('./images/04-sshremoteloginguide-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-
-> 注意：PC机要与HD-RK3506-EVB板在同一个网段内，否则SSH会因PC机与板卡不能通讯而无法登录；
-> 
-> 例如：当前板卡默认IP为192.168.1.10，则PC机也要设置一个192.168.1.xx的网段；

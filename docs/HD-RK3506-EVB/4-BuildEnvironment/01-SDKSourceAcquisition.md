@@ -25,9 +25,7 @@ sidebar_position: 1
 
 - **适合人群**：初学者、评测人员、硬件测试工程师。
 
-  
-
-  <span style={{ color: "#ff0000" }}>SDK源码目录位于 `/mnt/rk3506-sdk` 下。</span>
+  [Ubuntu虚拟机镜像下载](https://pan.baidu.com/s/1VhPGsQMbhB6NorsQsMgFmA?pwd=wxak)    （<span style={{ color: "#ff0000" }}>SDK源码目录位于 `/mnt/rk3506-sdk` 下。</span>）
 
 ### 方式二：百度网盘 SDK 完整源码包（下载后放入ubuntu主机中）
 
