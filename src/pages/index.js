@@ -36,6 +36,24 @@ const sections = [
   },
 ];
 
+const quickLinks = [
+  {
+    label: '产品介绍',
+    description: '了解核心规格与产品定位',
+    path: '/docs/HD-RK3506-EVB/ProductIntroduction',
+  },
+  {
+    label: '硬件概览',
+    description: '查看包装清单与接口说明',
+    path: '/docs/HD-RK3506-EVB/UnboxingAndHardwareOverview',
+  },
+  {
+    label: '资料下载',
+    description: '获取镜像、工具与相关资料',
+    path: '/docs/HD-RK3506-EVB/QuickStart/Resource_Download_Summary',
+  },
+];
+
 export default function Home() {
   return (
     <Layout
@@ -49,6 +67,11 @@ export default function Home() {
             <p className={styles.heroDescription}>
               从首次上电到应用、驱动与系统开发，一站式查阅开发板资料。
             </p>
+            <div className={styles.productTags} aria-label="产品特性">
+              <span>Rockchip RK3506</span>
+              <span>Linux / Buildroot</span>
+              <span>完整开发指南</span>
+            </div>
             <div className={styles.actions}>
               <Link
                 className="button button--primary button--lg"
@@ -61,6 +84,20 @@ export default function Home() {
                 快速上手
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.quickSection} aria-label="常用入口">
+          <div className={`container ${styles.quickGrid}`}>
+            {quickLinks.map((item) => (
+              <Link className={styles.quickLink} key={item.path} to={item.path}>
+                <span className={styles.quickIcon} aria-hidden="true">↗</span>
+                <span>
+                  <strong>{item.label}</strong>
+                  <small>{item.description}</small>
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
