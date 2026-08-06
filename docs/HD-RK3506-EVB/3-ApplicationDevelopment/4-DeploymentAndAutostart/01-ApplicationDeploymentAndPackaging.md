@@ -19,6 +19,6 @@ sidebar_position: 1
 
   以IOT-EMMC版本为例，比如我需要将test.sh脚本放入/etc目录，此脚本的作用是打印一行helloworld。
 
-  只需将脚本放入SDK中的`rk3506_linux6.1_sdk_v1.2.0/buildroot/board/vanxoak/hd_rk3506_iot_emmc/fs-overlay/etc`目录，重新编译后烧录固件，通过串口可以查看到etc目录下存在test.sh脚本。
+  只需将脚本放入SDK中的`rk3506_linux6.1_sdk_v1.2.0/buildroot/board/vanxoak/hd_rk3506g_evb_nand/fs-overlay/etc`目录，重新编译后烧录固件，通过串口可以查看到etc目录下存在test.sh脚本。
 
 <img src={require('./images/01-applicationdeploymentandpackaging-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
