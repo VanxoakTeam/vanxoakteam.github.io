@@ -25,7 +25,7 @@ sidebar_position: 7
 - 瑞芯微烧录工具RKDevTool\_Release 3.31
 - 系统固件文件，可从下方连接跳转至资料中心进行下载
 
-> 注：相关软件资料软件可以从[资料下载](http://localhost:3000/rockchip-docs/docs/HD-RK3506-EVB/QuickStart/Resource_Download_Summary)进行下载
+> 注：相关软件资料软件可以从[资料下载](/docs/HD-RK3506-EVB/QuickStart/Resource_Download_Summary)进行下载
 
   系统固件组成如下所示：
 

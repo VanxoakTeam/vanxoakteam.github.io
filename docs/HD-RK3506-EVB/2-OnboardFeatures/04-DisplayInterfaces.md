@@ -2,11 +2,13 @@
 sidebar_position: 4
 ---
 
-# 显示接口使用(MIPI RGB)
+# 显示接口使用(MIPI & RGB)
 
 :::tip 提示
 
-本指南将指导您如何使用 **RK3506-EVB** 的 **显示** 功能。
+本指南将指导您如何使用 **HD-RK3506-EVB** 的 **显示** 功能,板载硬件接口支持<span style={{ color: "#ff0000" }}>RGB LCD显示 或 MIPI LCD显示</span>。
+
+其中**HD-RK3506-EVB**的<span style={{ color: "#ff0000" }}>RGB接口支持RGB565</span>, <span style={{ color: "#ff0000" }}>MIPI接口支持2lanes</span>,显示最大支持屏幕分辨率为<span style={{ color: "#ff0000" }}>1280x1280@60fps</span>,。
 
 :::
 
@@ -89,5 +91,3 @@ modetest -M rockchip -s 75@72:1024x600
 ```shell
 echo 150 > /sys/class/backlight/backlight/brightness
 ```
-
-⚠️注：万象奥科的 7 寸 mipi 屏，无法修改背光亮度。
