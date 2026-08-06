@@ -16,7 +16,7 @@ const config = {
   //   v4: true, // Improve compatibility with the upcoming Docusaurus v4
   // },
 
-  url: 'https://vanxoakteam.github.io',
+  url: 'https://doc.vanxoak.com',
   baseUrl: '/',
 
   // GitHub pages deployment config.
