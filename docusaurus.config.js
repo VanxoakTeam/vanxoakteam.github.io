@@ -17,12 +17,12 @@ const config = {
   // },
 
   url: 'https://vanxoakteam.github.io',
-  baseUrl: '/rockchip-docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'VanxoakTeam', // Usually your GitHub org/user name.
-  projectName: 'rockchip-docs', // Usually your repo name.
+  projectName: 'vanxoakteam.github.io', // Root GitHub Pages repository.
 
   onBrokenLinks: 'throw',
 
@@ -56,7 +56,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/VanxoakTeam/rockchip-docs/tree/main/',
+            'https://github.com/VanxoakTeam/vanxoakteam.github.io/tree/main/',
         },
         blog: false,
         sitemap: {
@@ -105,7 +105,7 @@ const config = {
             ],
           },
           {
-            href: 'https://github.com/VanxoakTeam/rockchip-docs',
+            href: 'https://github.com/VanxoakTeam/vanxoakteam.github.io',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub Repository',
