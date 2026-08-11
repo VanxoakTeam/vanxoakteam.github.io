@@ -31,17 +31,12 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'en'],
+    locales: ['zh-Hans'],
     localeConfigs: {
       'zh-Hans': {
         label: '中文',
         direction: 'ltr',
         htmlLang: 'zh-CN',
-      },
-      en: {
-        label: 'English(comming soon)',
-        direction: 'ltr',
-        htmlLang: 'en-US',
       },
     },
   },
@@ -77,7 +72,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        respectPrefersColorScheme: true,
+        defaultMode: 'light',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
       docs: {
         sidebar: {
@@ -109,10 +106,6 @@ const config = {
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub Repository',
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
           },
         ],
       },
