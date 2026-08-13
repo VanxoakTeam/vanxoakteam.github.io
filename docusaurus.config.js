@@ -48,6 +48,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          // 根据 Git 历史在所有文档页底部显示最后更新时间和更新者。
+          // CI 构建必须检出完整 Git 历史（deploy.yml 已设置 fetch-depth: 0）。
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
