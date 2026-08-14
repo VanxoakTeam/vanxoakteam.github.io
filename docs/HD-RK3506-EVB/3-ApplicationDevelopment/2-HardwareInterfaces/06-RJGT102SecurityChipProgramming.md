@@ -383,10 +383,10 @@ cryptoSdr.h
 
   用户可下载以下软件示例源码，来验证加密芯片。
 
-[crypto_app.zip](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/57754166/1784098629361-9cbd3f24-4272-4897-bdf9-69d00384086c.zip)
+[crypto_app.zip](https://download.vanxoak.com/files/products/hd-rk3506-evb/apps/crypto_app.zip)
 
   以下是库文件以及头文件压缩包，如果开发板中没有库文件，请手动将库文件放进开发板中。
 
   RK3506系列使用`cryptSdr_arm`，其他RK系列（如RK3562、RK3568、RK3576等）使用`cryptSdr_aarch64`，头文件通用。
 
-[crypto_lib.zip](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/57754166/1784098628891-8970ef7f-a1a5-4a64-b962-62508ea29392.zip)
+[crypto_lib.zip](https://download.vanxoak.com/files/products/hd-rk3506-evb/apps/crypto_lib.zip)
