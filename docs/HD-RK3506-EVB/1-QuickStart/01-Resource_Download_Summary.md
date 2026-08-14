@@ -1,28 +1,34 @@
+---
+sidebar_position: 1
+---
+
 # 资源下载链接汇总
 
 :::tip 必读
 
-万象奥科HD-RK3506-EVB板配套使用HD-RK3506G-CORE核心板，HD-RK3506G-CORE只有NAND存储介质，RK3506G核心板如下图所示：
+万象奥科 HD-RK3506-EVB 开发板配套使用 HD-RK3506G-CORE 核心板，核心板采用 NAND 闪存，外观如下图所示：
 
 全部配套资源也可以前往 [HD-RK3506-EVB 下载中心](https://download.vanxoak.com/products/hd-rk3506-evb/) 按目录浏览。下载完成后，建议使用下载中心提供的 MD5 校验值核对文件完整性。
 
 :::
 
-<img src={require('./images/nand.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" style={{display: 'block', margin: '20px auto', maxWidth: '40%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/nand.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" className="doc-image--40" />
 
 ## 1. 软件参考资料
 
 | 类目             | 系统          | 存储     | 下载                                                         | 备注                                      |
 | ---------------- | ------------- | -------- | ------------------------------------------------------------ | ----------------------------------------- |
-| ⚙系统固件        | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-20260617.zip) | 适配**5寸RGB**显示屏幕，分辨率为800x480   |
-|                  | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-20260617.zip) | 适配**7寸MIPI**显示屏幕，分辨率为1024*600 |
-|                  | 📘 Linux       | SD卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-SD-20260617.zip) | 适配**5寸RGB**显示屏幕，分辨率为800x480   |
-|                  | 📘 Linux       | SD卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-SD-20260617.zip) | 适配**7寸MIPI**显示屏幕，分辨率为1024*600 |
+| ⚙系统固件        | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-20260617.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
+|                  | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-20260617.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
+|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-SD-20260617.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
+|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-SD-20260617.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
 | 🛠 刷机软件及驱动 | 📒 刷机软件    |          | [点击下载](https://download.vanxoak.com/files/common/tools/RKDevTool_Release_v3.32.zip) | RKDevTool_Release_v3.32.zip               |
 |                  | 📒 刷机驱动    |          | [点击下载](https://download.vanxoak.com/files/common/tools/DriverAssitant_v5.13.zip) | DriverAssitant_v5.13.zip                  |
-| 🛠 SDK开发        | 📒 SDK百度网盘 |          | [SDK百度网盘链接](https://pan.baidu.com/s/1nR-y_syJF4AG5F5zqLI5_g?pwd=wxak) | 提取码: wxak                              |
-|                  | 📒交叉编译链   |          | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/cross-compilation-tools/arm-buildroot-linux-gnueabihf_sdk-buildroot-20260326.tar.gz) | arm-buildroot-linux-gnueabihf--           |
-| 🛠开发工具        | 📒开发工具软件 |          | [Common-software-tools.zip](https://download.vanxoak.com/files/common/tools/Common-software-tools.zip)<br/>[SSCOM32.zip](https://download.vanxoak.com/files/common/tools/SSCOM32.zip)<br/>[SDDiskTool_v1.78.zip](https://download.vanxoak.com/files/common/tools/SDDiskTool_v1.78.zip) | 常用软件、串口工具和SD卡工具                  |
+| 🛠 SDK 开发       | 📒 SDK 源码    |          | [进入 SDK 下载目录](https://download.vanxoak.com/products/hd-rk3506-evb/sdk/) | 提供完整包、基础包+HD-RK3506-EVB补丁包             |
+|                  | 📒 交叉编译工具链 |       | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/cross-compilation-tools/arm-buildroot-linux-gnueabihf_sdk-buildroot-20260326.tar.gz) | arm-buildroot-linux-gnueabihf_sdk-buildroot-20260326.tar.gz |
+| 🛠 开发工具       | 📒 开发工具软件 |          | [Common-software-tools.zip](https://download.vanxoak.com/files/common/tools/Common-software-tools.zip)<br/>[VMware Workstation Pro 17.6.1](https://download.vanxoak.com/files/common/tools/VMware-workstation-full-17.6.1.zip)<br/>[SSCOM32.zip](https://download.vanxoak.com/files/common/tools/SSCOM32.zip)<br/>[SDDiskTool_v1.78.zip](https://download.vanxoak.com/files/common/tools/SDDiskTool_v1.78.zip) | 常用开发环境、串口调试和 SD 卡工具 |
+| 🛠 应用示例       | 📒 LVGL 9 UI 示例 |       | [lvgl_ui_demo.zip](https://download.vanxoak.com/files/products/hd-rk3506-evb/apps/lvgl_ui_demo.zip) | LVGL 9 UI 外部交叉编译示例源码 |
+
 
 ---
 
@@ -35,13 +41,13 @@
 | HD-RK3506G-CORE V1.0 | 📗DXF结构文件 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/hardware/rk3506g-core/HD-RK3506G-CORE%20V1.0-DXF.rar) | HD-RK3506G-CORE V1.0 DXF结构文件 |
 | 核心板如下左图所示 | 📗装配图/丝印图 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/hardware/rk3506g-core/HD-RK3506G-CORE%20V1.0-AssemblyDrawing.rar) | HD-RK3506G-CORE V1.0装配图与丝印资料 |
 |  | 📗数据手册 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/hardware/rk3506g-core/HD-RK3506G-CORE%20V1.0-Datasheet.pdf) | HD-RK3506G-CORE V1.0数据手册 |
-|  | 📗管脚分配表 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/hardware/rk3506g-core/HD-RK3506G-CORE%20V1.0-PinList.xlsx) | HD-RK3506G-CORE V1.0引脚列表 |
+|  | 📗引脚分配表 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/hardware/rk3506g-core/HD-RK3506G-CORE%20V1.0-PinList.xlsx) | HD-RK3506G-CORE V1.0 引脚列表 |
 
 ---
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '20px', margin: '20px 0'}}>
-  <img src={require('./images/core.png').default} alt="USB供电烧录" style={{maxWidth: '40%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-  <img src={require('./images/evb.png').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/core.png').default} alt="USB供电烧录" className="doc-image--40" />
+  <img src={require('./images/evb.png').default} alt="12s" className="doc-image--50" />
 </div>
 
 ### 2.2 HD-RK3506-EVB 底板

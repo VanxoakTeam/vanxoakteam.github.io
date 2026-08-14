@@ -2,29 +2,29 @@
 sidebar_position: 1
 ---
 
-# RK3506 OTA升级指南
+# RK3506 OTA 升级指南
 
-  rockchip 支持两种升级方案，一种是Recovery模式升级，一种是Linux A/B模式升级。本章节仅介绍Recovery模式升级。
+rockchip 支持两种升级方案，一种是Recovery模式升级，一种是Linux A/B模式升级。本章节仅介绍Recovery模式升级。
 
-  RK3506 支持通过OTA（Over-the-Air）技术进行升级。通过执行OTA命令，用户可以方便的通过SD卡/U盘/网络来对固件进行升级更新。
+RK3506 支持通过OTA（Over-the-Air）技术进行升级。通过执行OTA命令，用户可以方便的通过SD 卡/U 盘/网络来对固件进行升级更新。
 
-  如果用户不需要升级整个固件，只需要升级应用程序，我们可以通过编写脚本来实现用户应用程序的升级。
+如果用户不需要升级整个固件，只需要升级应用程序，我们可以通过编写脚本来实现用户应用程序的升级。
 
-  下面我们分别介绍OTA升级固件功能和升级用户应用程序功能。
+下面我们分别介绍OTA升级固件功能和升级用户应用程序功能。
 
 > **注：自2026年1月22日起，SDK已更新，修复了NAND版本无法OTA升级的问题。RK3506所有系列，都支持OTA升级功能，不受存储类型的限制。**
 
-  **如果开发板硬件有硬件看门狗，请短接看门狗跳线帽，禁用硬件看门狗功能后再进行如下操作。否则会OTA升级失败。**
+**如果开发板硬件有硬件看门狗，请短接看门狗跳线帽，禁用硬件看门狗功能后再进行如下操作。否则会OTA升级失败。**
 
-  **可参考**`**sdk\docs\cn\Linux\Recovery**`**目录，瑞芯微官方的手册关于OTA升级的相关介绍。**
+**可参考**`sdk\docs\cn\Linux\Recovery`**目录，瑞芯微官方的手册关于OTA升级的相关介绍。**
 
 ## 1. OTA升级
 
-  HD-RK3506系列 系统包含Recovery分区，该分区由kernel+resource+ramdisk 组成，主要用于升级操作。u-boot会根据misc分区存放的字段来判断将要引导的系统是Normal系统还是Recovery 系统。基于Recovery环境与主系统相对独立的特点，即使在升级过程中遇到诸如非正常断电等中断情况，也能确保升级流程具备一定程度上的恢复能力，从而保证了系统更新的完整性。
+HD-RK3506系列 系统包含Recovery分区，该分区由kernel+resource+ramdisk 组成，主要用于升级操作。u-boot会根据misc分区存放的字段来判断将要引导的系统是Normal系统还是Recovery 系统。基于Recovery环境与主系统相对独立的特点，即使在升级过程中遇到诸如非正常断电等中断情况，也能确保升级流程具备一定程度上的恢复能力，从而保证了系统更新的完整性。
 
 ### 1.1 UpdateEngine工具
 
-  HD-RK3506系列 可使用UpdateEngine工具进行OTA升级。可升级除lodaer 和 parameter外的分区，以下是updateEngine的使用方法。
+HD-RK3506系列 可使用UpdateEngine工具进行OTA升级。可升级除lodaer 和 parameter外的分区，以下是updateEngine的使用方法。
 
 ```shell
 root@rk3506-buildroot:/# updateEngine --h
@@ -72,7 +72,7 @@ LOG_INFO: --ui_rotation          UI rotation,has 4 angles(0-3).
 `--image_url`：升级固件存放路径。
 
 -   如果是网络升级，则表示以http://xxx/update.img，服务器上的update.img路径。
--   如果是本地升级（U盘/SD卡），则表示固件存放路径。如/mnt/udisk/update.img 或 /mnt/sdcard/update.img。
+-   如果是本地升级（U 盘/SD 卡），则表示固件存放路径。如/mnt/udisk/update.img 或 /mnt/sdcard/update.img。
 
 `--savepath`：固件保存路径。
 
@@ -90,15 +90,15 @@ LOG_INFO: --ui_rotation          UI rotation,has 4 angles(0-3).
 -   如果升级`misc`分区，指定`partition=0x200`；
 -   如果升级`userdata`分区，指定`partition=0x100`；
 
-  还可以指定版本文件等参数，在这里我们不过多介绍，详情可查看瑞芯微官方文档。
+还可以指定版本文件等参数，在这里我们不过多介绍，详情可查看瑞芯微官方文档。
 
-  下面针对本地升级，使用以下命令示例升级内核，指定--partition参数为0x80000：
+下面针对本地升级，使用以下命令示例升级内核，指定--partition参数为0x80000：
 
 ```shell
 updateEngine --image_url=/mnt/udisk/update.img --misc=update --partition=0x80000 --reboot &
 ```
 
-  如果缺省--partition参数，将会设置--partition为默认值，0x3FFC00。使用以下命令可升级整个系统（loader 和parameter除外），userdata分区将会保留一些出厂设置，该分区默认不会升级。在不指定--partition时，userdata分区将默认不会升级。
+如果缺省--partition参数，将会设置--partition为默认值，0x3FFC00。使用以下命令可升级整个系统（loader 和parameter除外），userdata分区将会保留一些出厂设置，该分区默认不会升级。在不指定--partition时，userdata分区将默认不会升级。
 
 ```shell
 updateEngine --image_url=/mnt/udisk/test/update.img --misc=update  --reboot &
@@ -113,11 +113,11 @@ updateEngine --image_url=/mnt/udisk/test/update.img --misc=update  --reboot &
 
 ### 1.2 OTA升级流程介绍
 
-  OTA升级分为网络升级和本地升级。下面我们分别针对这两种情况进行介绍
+OTA升级分为网络升级和本地升级。下面我们分别针对这两种情况进行介绍
 
 #### 1.2.1 网络升级
 
-  网络升级目前只支持htpp服务进行解析固件，暂未对其他协议进行支持。
+网络升级目前只支持htpp服务进行解析固件，暂未对其他协议进行支持。
 
 ```shell
 # updateEngine --misc=update --image_url=固件地址 --partition=0x3FFC00 --version_url=版本文件地址 --savepath=保存的固件地址 --reboot
@@ -137,7 +137,7 @@ updateEngine --image_url=http://172.16.21.110:8080/linuxab/update.img --misc=upd
 
 #### 1.2.2 本地升级
 
-  本地升级，将会直接从image\_url路径获取升级固件，进行OTA升级。
+本地升级，将会直接从image\_url路径获取升级固件，进行OTA升级。
 
 ```shell
 updateEngine --image_url=/mnt/udisk/test/update.img --misc=update  --reboot &
@@ -154,11 +154,11 @@ updateEngine --image_url=/mnt/udisk/test/update.img --misc=update  --reboot &
 
 ### 1.3 升级日志Log查看
 
-  当使用UpdateEngine命令，进行OTA升级后，无论成功与否，可通过查看系统`/userdata/recovery/log`文件，此文件将会保存recovery模式中OTA升级的Log。
+当使用UpdateEngine命令，进行OTA升级后，无论成功与否，可通过查看系统`/userdata/recovery/log`文件，此文件将会保存recovery模式中OTA升级的Log。
 
-### 1.4 使用U盘或SD卡进行OTA升级
+### 1.4 使用U 盘或SD 卡进行OTA升级
 
--   挂载U盘或SD卡
+-   挂载U 盘或SD 卡
 
 ```plain
 mount /dev/sda1 /mnt/udisk
@@ -166,7 +166,7 @@ mount /dev/sda1 /mnt/udisk
 
 -   选择相应的掩码，升级指定的分区
 
-  使用以下命令进行升级，系统将会对固件进行校验后，进行升级，升级成功后，将会重启。
+使用以下命令进行升级，系统将会对固件进行校验后，进行升级，升级成功后，将会重启。
 
 > 注意：**必须保证mage\_url 路径中固件有效，否则OTA升级可能会失败**。
 >
@@ -175,7 +175,7 @@ mount /dev/sda1 /mnt/udisk
 updateEngine --image_url=/mnt/udisk/update.img --misc=update  --partition=0x80000 --reboot &
 ```
 
-  升级时，串口打印log如下：
+升级时，串口打印log如下：
 
 ```plain
 root@rk3506-buildroot:/# updateEngine --image_url=/mnt/udisk/test/update.img --misc=update  --reboot &
@@ -548,9 +548,9 @@ Total: 445.895/515.99 ms
 
 ## 2. 用户应用程序升级
 
-  HD-RK3506系列，可直接通过U盘或SD卡升级用户应用程序，假设用户APP可执行文件名为myapp，在/root目录。
+HD-RK3506系列，可直接通过U 盘或SD 卡升级用户应用程序，假设用户APP可执行文件名为myapp，在/root目录。
 
-  下方展示插上U盘，自动挂载U盘后，自动从U盘查找升级文件，备份旧程序后，升级新的应用程序的脚本。
+下方展示插上U 盘，自动挂载U 盘后，自动从U 盘查找升级文件，备份旧程序后，升级新的应用程序的脚本。
 
 ```plain
 #!/bin/sh
@@ -611,9 +611,9 @@ exit 0
 
 ```
 
-  首先需要在U盘中放置myapp，为脚本自定义的应用程序名称，为新的应用程序，然后插入U盘。
+首先需要在U 盘中放置myapp，为脚本自定义的应用程序名称，为新的应用程序，然后插入U 盘。
 
-  运行以下命令，直接升级应用程序。
+运行以下命令，直接升级应用程序。
 
 ```plain
 root@rk3506-buildroot:~# update_APP.sh
@@ -625,6 +625,6 @@ Copying new version...
 Upgrade complete.
 ```
 
-  通过运行截图可以看到，升级前myapp的MD5值和升级后myapp的MD5值不同，备份的应用程序与升级前的myapp应用程序MD5值相同，说明升级成功。
+通过运行截图可以看到，升级前myapp的MD5值和升级后myapp的MD5值不同，备份的应用程序与升级前的myapp应用程序MD5值相同，说明升级成功。
 
-<img src={require('./images/01-otaupgradeguide-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-otaupgradeguide-01.png').default} alt="image.png" className="doc-image--80" />

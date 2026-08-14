@@ -1,9 +1,9 @@
 {
-  "label": "SDK开发",
-  "position": 4,
+  "label": "SDK 开发",
+  "position": 6,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "description": "SDK开发相关文档"
+    "description": "SDK 开发相关文档。"
   }
 }

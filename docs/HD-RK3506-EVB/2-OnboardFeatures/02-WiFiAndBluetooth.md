@@ -2,37 +2,37 @@
 sidebar_position: 2
 ---
 
-# WIFI与蓝牙
+# Wi-Fi 与蓝牙
 
 :::tip 提示
 
-本指南将指导您如何使用 **RK3506-EVB** 的 **WiFi** 和**蓝牙**功能。
+本指南将指导您如何使用 **RK3506-EVB** 的 **Wi-Fi** 和**蓝牙**功能。
 
 
 :::
 
-## 1. WIFI 的使用
+## 1. Wi-Fi 的使用
 
-  WiFi模块工作模式分为AP与STA模式，AP就是无线接入点，是一个无线网络的创建者，常见的AP设备就是WiFi路由器，它提供房间内如手机、电脑等各类电子设备的上网需求。而STA就是作为连入热点的设备，利用WiFi热点进行网络通讯，常见的STA设备就是手机。
+Wi-Fi模块工作模式分为AP与STA模式，AP就是无线接入点，是一个无线网络的创建者，常见的AP设备就是Wi-Fi路由器，它提供房间内如手机、电脑等各类电子设备的上网需求。而STA就是作为连入热点的设备，利用Wi-Fi热点进行网络通讯，常见的STA设备就是手机。
 
-  HD-RK3506-EVB板卡默认支持以下蓝牙WIFI二合一模块：
+HD-RK3506-EVB板卡默认支持以下蓝牙Wi-Fi二合一模块：
 
-  Wi-FI模组/BL-M8800US9-80I(不带天线座)/Wifi6双频/BT5.4/-40~+85℃/必联
+Wi-FI模组/BL-M8800US9-80I(不带天线座)/Wifi6双频/BT5.4/-40~+85℃/必联
 
 ### 1.1 STA模式
 
 #### 步骤 1：生成配置文件
 
-  设置需要连接的WIFI的名字和密码：
+设置需要连接的Wi-Fi的名字和密码：
 
 ```shell
 wpa_passphrase WIFI_SSID PASSWORD > /etc/wpa_supplicant.conf
 ```
 
-> -   WIFI\_SSID：WIFI名字
-> -   PASSWORD：WIFI密码
+> -   Wi-Fi\_SSID：Wi-Fi名字
+> -   PASSWORD：Wi-Fi密码
 
-  例如： 连接`B501_2.4G`这个WIFI，密码为`vanxoak8888`，则可以：
+例如： 连接`B501_2.4G`这个Wi-Fi，密码为`vanxoak8888`，则可以：
 
 ```shell
 root@rk3506-buildroot:/# wpa_passphrase B501_2.4G vanxoak8888 > /etc/wpa_supplicant.conf
@@ -40,7 +40,7 @@ root@rk3506-buildroot:/# wpa_passphrase B501_2.4G vanxoak8888 > /etc/wpa_supplic
 
 #### 步骤 2：启动配置文件
 
-  填入WIFI\_SSID以及PASSWORD， 执行`udhcpc -i wlan0`获取。（事先插入WIFI天线）
+填入Wi-Fi\_SSID以及PASSWORD， 执行`udhcpc -i wlan0`获取。（事先插入Wi-Fi天线）
 
 ```shell
 wpa_supplicant -B -iwlan0 -c /etc/wpa_supplicant.conf
@@ -49,7 +49,7 @@ udhcpc -i wlan0
 
 #### 步骤 3：连通性验证
 
-  当WIFI网络连接成功后，使用`ifconfig`命令可以看到wlan0网络接口已经自动获取了IP地址，如下图所示：
+当Wi-Fi网络连接成功后，使用`ifconfig`命令可以看到wlan0网络接口已经自动获取了IP 地址，如下图所示：
 
 ```shell
 root@rk3506-buildroot:/# ifconfig wlan0
@@ -62,19 +62,19 @@ wlan0     Link encap:Ethernet  HWaddr 48:8F:4C:5D:EA:B0
           RX bytes:2233559 (2.1 MiB)  TX bytes:2208 (2.1 KiB)
 ```
 
-  如果WIFI网络可以连接互联网，也可以直接在命令行下使用`ping`命令，`ping`某个公网网址，测试网络是否连通。例如`ping`外部网址，可在命令行下执行如下命令：
+如果Wi-Fi网络可以连接互联网，也可以直接在命令行下使用`ping`命令，`ping`某个公网网址，测试网络是否连通。例如`ping`外部网址，可在命令行下执行如下命令：
 
 ```shell
 root@rk3506-buildroot:/# ping 8.8.8.8 -I wlan0
 ```
 
-  如果可以`ping`通表明WIFI网络连接成功。
+如果可以`ping`通表明Wi-Fi网络连接成功。
 
 ### 1.2 AP模式配置
 
 #### 步骤 1：新建配置
 
-  在/etc/目录下新建配置hostapd.conf和udhcpd.conf。
+在/etc/目录下新建配置hostapd.conf和udhcpd.conf。
 
 - 文件：/etc/hostapd.conf
 
@@ -97,9 +97,9 @@ rsn_pairwise=CCMP
 
 > 配置项解释：
 > 
-> -   **interface**：WIFI节点名，这里设置为wlan0
-> -   **ssid**：WIFI账号，这里设置为HD-RK3506-WIFI
-> -   **wpa\_passphrase**：WIFI密码，这里设置12345678
+> -   **interface**：Wi-Fi节点名，这里设置为wlan0
+> -   **ssid**：Wi-Fi账号，这里设置为HD-RK3506-Wi-Fi
+> -   **wpa\_passphrase**：Wi-Fi密码，这里设置12345678
 
 - 文件：/etc/udhcpd.conf
 
@@ -117,8 +117,8 @@ option lease 864000
 
 > **配置项解释：**
 > 
-> -   **start 192.168.1.2**：指定DHCP地址池的起始IP地址为`192.168.1.2`
-> -   **end 192.168.1.254**：指定DHCP地址池的结束IP地址为`192.168.1.254`
+> -   **start 192.168.1.2**：指定DHCP地址池的起始IP 地址为`192.168.1.2`
+> -   **end 192.168.1.254**：指定DHCP地址池的结束IP 地址为`192.168.1.254`
 > -   **interface wlan0**：指定DHCP服务将在名为`wlan0`的网络接口上运行
 > -   **opt dns 114.114.114.114**：设置由DHCP服务器分发给客户端的首选DNS服务器地址为`114.114.114.114`
 > -   **option subnet 255.255.255.0**：指定子网掩码为`255.255.255.0`
@@ -126,7 +126,7 @@ option lease 864000
 
 #### 步骤 2：开启热点
 
-  执行如下命令开启热点。
+执行如下命令开启热点。
 
 ```shell
 ifconfig wlan0 up 192.168.1.18                 # 保持跟dhcpd同网段
@@ -140,7 +140,7 @@ route add default gw 192.168.1.1 dev wlan0     # 设置默认路由
 
 ### 2.1 蓝牙连接
 
-  实现蓝牙的广播功能，通过手机主动连接开发板，进行连接。
+实现蓝牙的广播功能，通过手机主动连接开发板，进行连接。
 
 #### 步骤 1：执行bluetoothctl命令
 
@@ -154,7 +154,7 @@ Agent registered
 
 #### 步骤 2：设置广播模式
 
-  执行以下命令，配置广播模式，设置可发现、可配对。
+执行以下命令，配置广播模式，设置可发现、可配对。
 
 ```shell
 power on                     #打开电源
@@ -173,25 +173,25 @@ advertise on                     #开启广播
 show                             #查看配置器
 ```
 
-<img src={require('./images/02-wifiandbluetooth-01.png').default} alt="企业微信截图_17767596424517.png" style={{display: 'block', margin: '0px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-<img src={require('./images/02-wifiandbluetooth-02.png').default} alt="企业微信截图_1776759986376.png" style={{display: 'block', margin: '0px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-<img src={require('./images/02-wifiandbluetooth-03.png').default} alt="企业微信截图_17767601219245.png" style={{display: 'block', margin: '0px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-01.png').default} alt="企业微信截图_17767596424517.png" className="doc-image--80" />
+<img src={require('./images/02-wifiandbluetooth-02.png').default} alt="企业微信截图_1776759986376.png" className="doc-image--80" />
+<img src={require('./images/02-wifiandbluetooth-03.png').default} alt="企业微信截图_17767601219245.png" className="doc-image--80" />
 
 #### 步骤 3：手机扫描，进行连接
 
-<img src={require('./images/02-wifiandbluetooth-04.jpeg').default} alt="Screenshot_20260421_155543_cn.wch.bledemo.jpg" style={{display: 'block', margin: '20px auto', maxWidth: '30%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-04.jpeg').default} alt="Screenshot_20260421_155543_cn.wch.bledemo.jpg" className="doc-image--30" />
 
 #### 步骤 4： 连接完成
 
-<img src={require('./images/02-wifiandbluetooth-05.jpeg').default} alt="Screenshot_20260421_155555_cn.wch.bledemo.jpg" style={{display: 'block', margin: '20px auto', maxWidth: '30%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-05.jpeg').default} alt="Screenshot_20260421_155555_cn.wch.bledemo.jpg" className="doc-image--30" />
 
 ### 2.2 蓝牙数据传输
 
-  在开发板上进行数据收发，需要注册一个自定义服务，通过这个自定义服务来实现。
+在开发板上进行数据收发，需要注册一个自定义服务，通过这个自定义服务来实现。
 
 #### 步骤 1：注册自定义服务
 
-  执行以下命令，注册自定义服务
+执行以下命令，注册自定义服务
 
 ```shell
 menu gatt                                             #进入数据传输配置菜单
@@ -203,19 +203,19 @@ register-descriptor 00002902-0000-1000-8000-00805f9b34fb read,write
 register-application                                                    #应用注册
 ```
 
-<img src={require('./images/02-wifiandbluetooth-06.png').default} alt="企业微信截图_17767634669438.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-06.png').default} alt="企业微信截图_17767634669438.png" className="doc-image--80" />
 
 #### 步骤 2：手机断开重连
 
-  手机上断开重连就会多一个务，可以进行数据的收发了
+手机上断开重连就会多一个务，可以进行数据的收发了
 
-<img src={require('./images/02-wifiandbluetooth-07.jpeg').default} alt="Screenshot_20260421_173140_cn.wch.bledemo.jpg" style={{display: 'block', margin: '20px auto', maxWidth: '30%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-07.jpeg').default} alt="Screenshot_20260421_173140_cn.wch.bledemo.jpg" className="doc-image--30" />
 
 #### 步骤 3：发送数据
 
-  断开重连后，手机发送数据，开发板自动接收数据并打印
+断开重连后，手机发送数据，开发板自动接收数据并打印
 
-<img src={require('./images/02-wifiandbluetooth-08.png').default} alt="企业微信截图_17767651974387.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-wifiandbluetooth-08.png').default} alt="企业微信截图_17767651974387.png" className="doc-image--80" />
 
 ### 2.3 bluetoothctl工具
 

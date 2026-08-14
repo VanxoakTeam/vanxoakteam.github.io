@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
-# I2C应用编程
+# I2C 应用编程
 
 :::tip 提示
 
@@ -13,13 +13,13 @@ sidebar_position: 5
 
 ## 1. I2C介绍
 
-  参考资料：I2Ctools
+参考资料：I2Ctools
 
 [**https://mirrors.edge.kernel.org/pub/software/utils/i2c-tools/**](https://mirrors.edge.kernel.org/pub/software/utils/i2c-tools/)
 
 ### 1.1 I2C硬件框架
 
-<img src={require('./images/05-i2cprogramming-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-01.png').default} alt="image.png" className="doc-image--80" />
 
 图 10.1 I2C总线拓扑图
 
@@ -30,7 +30,7 @@ sidebar_position: 5
 
 ### 1.2 I2C软件框架
 
-<img src={require('./images/05-i2cprogramming-12.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-12.png').default} alt="image.png" className="doc-image--80" />
 
 图 10.2 I2C软件框架
 
@@ -59,7 +59,7 @@ sidebar_position: 5
 
 #### 1）**对于Linux**
 
-<img src={require('./images/05-i2cprogramming-23.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-23.png').default} alt="image.png" className="doc-image--80" />
 
 从上到下：
 
@@ -82,7 +82,7 @@ sidebar_position: 5
 
 #### 2）**对于单片机/裸机**
 
-<img src={require('./images/05-i2cprogramming-26.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-26.png').default} alt="image.png" className="doc-image--80" />
 
 从上到下：
 
@@ -93,23 +93,23 @@ sidebar_position: 5
 
 ## 2. I2C协议
 
-  参考资料：
+参考资料：
 
 i2c\_spec.pdf
 
 ### 2.1 硬件连接
 
-  I2C在硬件上的接法如下所示，主控芯片引出两条线SCL,SDA线，在一条I2C总线上可以接很多I2C设备，我们还会放一个上拉电阻（放一个上拉电阻的原因以后我们再说）。
+I2C在硬件上的接法如下所示，主控芯片引出两条线SCL,SDA线，在一条I2C总线上可以接很多I2C设备，我们还会放一个上拉电阻（放一个上拉电阻的原因以后我们再说）。
 
-<img src={require('./images/05-i2cprogramming-27.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-27.png').default} alt="image.png" className="doc-image--80" />
 
 ### 2.2 传输数据类比
 
-  怎么通过I2C传输数据，我们需要把数据从主设备发送到从设备上去，也需要把数据从从设备传送到主设备上去，数据涉及到双向传输。
+怎么通过I2C传输数据，我们需要把数据从主设备发送到从设备上去，也需要把数据从从设备传送到主设备上去，数据涉及到双向传输。
 
 举个例子：
 
-<img src={require('./images/05-i2cprogramming-28.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-28.png').default} alt="image.png" className="doc-image--80" />
 
 体育老师：可以把球发给学生，也可以把球从学生中接过来。
 
@@ -154,7 +154,7 @@ i2c\_spec.pdf
 -   数据发送完之后，主芯片就会发送一个停止信号。
 -   下图：白色背景表示"主→从"，灰色背景表示"从→主"
 
-<img src={require('./images/05-i2cprogramming-29.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-29.png').default} alt="image.png" className="doc-image--80" />
 
 #### 2）**读操作**
 
@@ -169,7 +169,7 @@ i2c\_spec.pdf
 
 下图：白色背景表示"主→从"，灰色背景表示"从→主"
 
-<img src={require('./images/05-i2cprogramming-30.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-30.png').default} alt="image.png" className="doc-image--80" />
 
 #### 3）**I2C信号**
 
@@ -182,7 +182,7 @@ I2C协议中数据传输的单位是字节，也就是8位。但是要用到9个
 
 I2C协议信号如下：
 
-<img src={require('./images/05-i2cprogramming-31.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-31.png').default} alt="image.png" className="doc-image--80" />
 
 #### 4）**协议细节**
 
@@ -199,11 +199,11 @@ I2C协议信号如下：
 
 -   设备的SDA中有一个三极管，使用开极/开漏电路(三极管是开极，CMOS管是开漏，作用一样)，如下图：
 
-<img src={require('./images/05-i2cprogramming-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-02.png').default} alt="image.png" className="doc-image--80" />
 
-  真值表如下：
+真值表如下：
 
-<img src={require('./images/05-i2cprogramming-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-03.png').default} alt="image.png" className="doc-image--80" />
 
 从真值表和电路图我们可以知道：
 
@@ -224,19 +224,19 @@ I2C协议信号如下：
 
 -   从设备决定数据，要发出回应信号的话，就驱动三极管让SDA变为0
 
-  从这里也可以知道ACK信号是低电平
+从这里也可以知道ACK信号是低电平
 
-  从上面的例子，就可以知道怎样在一条线上实现双向传输，这就是SDA上要使用上拉电阻的原因。
+从上面的例子，就可以知道怎样在一条线上实现双向传输，这就是SDA上要使用上拉电阻的原因。
 
-  为何SCL也要使用上拉电阻？在第9个时钟之后，如果有某一方需要更多的时间来处理数据，它可以一直驱动三极管把SCL拉低。 当SCL为低电平时候，大家都不应该使用IIC总线，只有当SCL从低电平变为高电平的时候，IIC总线才能被使用。
+为何SCL也要使用上拉电阻？在第9个时钟之后，如果有某一方需要更多的时间来处理数据，它可以一直驱动三极管把SCL拉低。 当SCL为低电平时候，大家都不应该使用IIC总线，只有当SCL从低电平变为高电平的时候，IIC总线才能被使用。
 
-  当它就绪后，就可以不再驱动三极管，这是上拉电阻把SCL变为高电平，其他设备就可以继续使用I2C总线了。
+当它就绪后，就可以不再驱动三极管，这是上拉电阻把SCL变为高电平，其他设备就可以继续使用I2C总线了。
 
-  对于IIC协议它只能规定怎么传输数据，数据是什么含义由从设备决定。
+对于IIC协议它只能规定怎么传输数据，数据是什么含义由从设备决定。
 
 ## 3. SMBus协议
 
-  参考资料：
+参考资料：
 
 -   Linux内核文档：Documentation\\i2c\\smbus-protocol.rst
 -   SMBus协议：[http://www.smbus.org/specs/](http://www.smbus.org/specs/)
@@ -245,9 +245,9 @@ I2C协议信号如下：
 
 ### 3.1 SMBus是I2C协议的一个子集
 
-  SMBus: System Management Bus，系统管理总线。 SMBus最初的目的是为智能电池、充电电池、其他微控制器之间的通信链路而定义的。 SMBus也被用来连接各种设备，包括电源相关设备，系统传感器，EEPROM通讯设备等等。 SMBus 为系统和电源管理这样的任务提供了一条控制总线，使用 SMBus 的系统，设备之间发送和接收消息都是通过 SMBus，而不是使用单独的控制线，这样可以节省设备的管脚数。 SMBus是基于I2C协议的，SMBus要求更严格，SMBus是I2C协议的子集。
+SMBus: System Management Bus，系统管理总线。 SMBus最初的目的是为智能电池、充电电池、其他微控制器之间的通信链路而定义的。 SMBus也被用来连接各种设备，包括电源相关设备，系统传感器，EEPROM通讯设备等等。 SMBus 为系统和电源管理这样的任务提供了一条控制总线，使用 SMBus 的系统，设备之间发送和接收消息都是通过 SMBus，而不是使用单独的控制线，这样可以节省设备的管脚数。 SMBus是基于I2C协议的，SMBus要求更严格，SMBus是I2C协议的子集。
 
-<img src={require('./images/05-i2cprogramming-04.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-04.png').default} alt="image.png" className="doc-image--80" />
 
 SMBus有哪些更严格的要求？跟一般的I2C协议有哪些差别？
 
@@ -281,15 +281,15 @@ SMBus有哪些更严格的要求？跟一般的I2C协议有哪些差别？
 
 ② 读数据
 
-  在写、读之间，可以不发出P信号，而是直接发出S信号：这个S信号就是REPEATED START，如图所示
+在写、读之间，可以不发出P信号，而是直接发出S信号：这个S信号就是REPEATED START，如图所示
 
-<img src={require('./images/05-i2cprogramming-05.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-05.png').default} alt="image.png" className="doc-image--80" />
 
 -   SMBus Low Power Version：SMBus也有低功耗的版本
 
 ### 3.2 SMBus协议分析
 
-  对于I2C协议，它只定义了怎么传输数据，但是并没有定义数据的格式，这完全由设备来定义。 对于SMBus协议，它定义了几种数据格式。
+对于I2C协议，它只定义了怎么传输数据，但是并没有定义数据的格式，这完全由设备来定义。 对于SMBus协议，它定义了几种数据格式。
 
 > 注意：下面文档中的Functionality flag是Linux的某个I2C控制器驱动所支持的功能。比如Functionality flag: I2C\_FUNC\_SMBUS\_QUICK，表示需要I2C控制器支持SMBus Quick Command
 
@@ -319,74 +319,74 @@ Count (8 bits): A data byte containing the length of a block operation.
 
 #### 2）**SMBus Quick Command**
 
-<img src={require('./images/05-i2cprogramming-06.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-06.png').default} alt="image.png" className="doc-image--80" />
 
-  只是用来发送一位数据：R/W#本意是用来表示读或写，但是在SMBus里可以用来表示其他含义。比如某些开关设备，可以根据这一位来决定是打开还是关闭。
+只是用来发送一位数据：R/W#本意是用来表示读或写，但是在SMBus里可以用来表示其他含义。比如某些开关设备，可以根据这一位来决定是打开还是关闭。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_QUICK
+Functionality flag: I2C\_FUNC\_SMBUS\_QUICK
 
 #### 3 ）SMBus Receive Byte
 
-<img src={require('./images/05-i2cprogramming-07.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-07.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_read\_byte()。读取一个字节，Host adapter接收到一个字节后不需要发出回应信号(上图中N表示不回应)。
+I2C-tools中的函数：i2c\_smbus\_read\_byte()。读取一个字节，Host adapter接收到一个字节后不需要发出回应信号(上图中N表示不回应)。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BYTE
+Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BYTE
 
 #### **4）SMBus Send Byte**
 
-<img src={require('./images/05-i2cprogramming-08.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-08.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_write\_byte()。发送一个字节。
+I2C-tools中的函数：i2c\_smbus\_write\_byte()。发送一个字节。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BYTE
+Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BYTE
 
 #### 5）**SMBus Read Byte**
 
-<img src={require('./images/05-i2cprogramming-09.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-09.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_read\_byte\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再读取一个字节的数据。上面介绍的SMBus Receive Byte是不发送Comand，直接读取数据。
+I2C-tools中的函数：i2c\_smbus\_read\_byte\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再读取一个字节的数据。上面介绍的SMBus Receive Byte是不发送Comand，直接读取数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BYTE\_DATA
+Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BYTE\_DATA
 
 #### 6）**SMBus Read Word**
 
-<img src={require('./images/05-i2cprogramming-10.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-10.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_read\_word\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再读取2个字节的数据。
+I2C-tools中的函数：i2c\_smbus\_read\_word\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再读取2个字节的数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_READ\_WORD\_DATA
+Functionality flag: I2C\_FUNC\_SMBUS\_READ\_WORD\_DATA
 
 #### 7）**SMBus Write Byte**
 
-<img src={require('./images/05-i2cprogramming-11.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-11.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_write\_byte\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的数据。
+I2C-tools中的函数：i2c\_smbus\_write\_byte\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BYTE\_DATA
+Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BYTE\_DATA
 
 #### 8）**SMBus Write Word**
 
-<img src={require('./images/05-i2cprogramming-13.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-13.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_write\_word\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的数据。
+I2C-tools中的函数：i2c\_smbus\_write\_word\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_WORD\_DATA
+Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_WORD\_DATA
 
 #### 9）**SMBus Block Read**
 
-<img src={require('./images/05-i2cprogramming-14.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-14.png').default} alt="image.png" className="doc-image--80" />
 
 I2C-tools中的函数：i2c\_smbus\_read\_block\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发起度操作：
 
 -   先读到一个字节(Block Count)，表示后续要读的字节数
 -   然后读取全部数据
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BLOCK\_DATA
+Functionality flag: I2C\_FUNC\_SMBUS\_READ\_BLOCK\_DATA
 
 #### 10）**SMBus Block Write**
 
-<img src={require('./images/05-i2cprogramming-15.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-15.png').default} alt="image.png" className="doc-image--80" />
 
 图 10.22 10 SMBus Block Write
 
@@ -398,39 +398,39 @@ Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BLOCK\_DATA
 
 在一般的I2C协议中，也可以连续读出多个字节。它跟SMBus Block Read的差别在于设备发出的第1个数据不是长度N，如下图所示：
 
-<img src={require('./images/05-i2cprogramming-16.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-16.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_read\_i2c\_block\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的Byte Conut(表示后续要发出的数据字节数)，最后发出全部数据。
+I2C-tools中的函数：i2c\_smbus\_read\_i2c\_block\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的Byte Conut(表示后续要发出的数据字节数)，最后发出全部数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_READ\_I2C\_BLOCK
+Functionality flag: I2C\_FUNC\_SMBUS\_READ\_I2C\_BLOCK
 
 #### 12）**I2C Block Write**
 
-  在一般的I2C协议中，也可以连续发出多个字节。它跟SMBus Block Write的差别在于发出的第1个数据不是长度N，如下图所示：
+在一般的I2C协议中，也可以连续发出多个字节。它跟SMBus Block Write的差别在于发出的第1个数据不是长度N，如下图所示：
 
-<img src={require('./images/05-i2cprogramming-17.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-17.png').default} alt="image.png" className="doc-image--80" />
 
-  I2C-tools中的函数：i2c\_smbus\_write\_i2c\_block\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的Byte Conut(表示后续要发出的数据字节数)，最后发出全部数据。
+I2C-tools中的函数：i2c\_smbus\_write\_i2c\_block\_data()。先发出Command Code(它一般表示芯片内部的寄存器地址)，再发出1个字节的Byte Conut(表示后续要发出的数据字节数)，最后发出全部数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_I2C\_BLOCK
+Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_I2C\_BLOCK
 
 #### 13）**SMBus Block Write - Block Read Process Call**
 
-<img src={require('./images/05-i2cprogramming-18.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-18.png').default} alt="image.png" className="doc-image--80" />
 
-  先写一块数据，再读一块数据。
+先写一块数据，再读一块数据。
 
-  Functionality flag: I2C\_FUNC\_SMBUS\_BLOCK\_PROC\_CALL
+Functionality flag: I2C\_FUNC\_SMBUS\_BLOCK\_PROC\_CALL
 
 #### 14）**Packet Error Checking (PEC)**
 
-  PEC是一种错误校验码，如果使用PEC，那么在P信号之前，数据发送方要发送一个字节的PEC码(它是CRC-8码)。以SMBus Send Byte为例，下图中，一个未使用PEC，另一个使用PEC：
+PEC是一种错误校验码，如果使用PEC，那么在P信号之前，数据发送方要发送一个字节的PEC码(它是CRC-8码)。以SMBus Send Byte为例，下图中，一个未使用PEC，另一个使用PEC：
 
-<img src={require('./images/05-i2cprogramming-19.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-19.png').default} alt="image.png" className="doc-image--80" />
 
 ### 3.3 SMBus和I2C的建议
 
-  因为很多设备都实现了SMBus，而不是更宽泛的I2C协议，所以优先使用SMBus。即使I2C控制器没有实现SMBus，软件方面也是可以使用I2C协议来模拟SMBus。所以：Linux建议优先使用SMBus。
+因为很多设备都实现了SMBus，而不是更宽泛的I2C协议，所以优先使用SMBus。即使I2C控制器没有实现SMBus，软件方面也是可以使用I2C协议来模拟SMBus。所以：Linux建议优先使用SMBus。
 
 ## 4. I2C系统的重要结构体
 
@@ -441,7 +441,7 @@ Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BLOCK\_DATA
 
 ### 4.1 重要结构体
 
-  使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
+使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
 
 在Linux中要思索下面几个问题。
 
@@ -450,41 +450,41 @@ Functionality flag: I2C\_FUNC\_SMBUS\_WRITE\_BLOCK\_DATA
 -   对于使用者，只要确定是第几个I2C Controller即可
 -   使用i2c\_adapter表示一个I2C BUS，或称为I2C Controller，里面有2个重要的成员：
 
-  a) nr：第几个I2C BUS(I2C Controller)
+a) nr：第几个I2C BUS(I2C Controller)
 
-  b) i2c\_algorithm，里面有该I2C BUS的传输函数，用来收发I2C数据
+b) i2c\_algorithm，里面有该I2C BUS的传输函数，用来收发I2C数据
 
 i2c\_adapter原型：
 
-<img src={require('./images/05-i2cprogramming-20.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-20.png').default} alt="image.png" className="doc-image--80" />
 
 i2c\_algorithm原型：
 
-<img src={require('./images/05-i2cprogramming-21.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-21.png').default} alt="image.png" className="doc-image--80" />
 
 #### 1）**怎么表示I2C Device**
 
 -   一个I2C Device，一定有**设备地址**
 -   它连接在哪个I2C Controller上，即对应的i2c\_adapter是什么
 
-  使用i2c\_client来表示一个I2C Device
+使用i2c\_client来表示一个I2C Device
 
 #### 2）**怎么表示要传输的数据**
 
-  在上面的i2c\_algorithm结构体中可以看到要传输的数据被称为：i2c\_msg
+在上面的i2c\_algorithm结构体中可以看到要传输的数据被称为：i2c\_msg
 
 i2c\_msg原型：
 
 -   i2c\_msg中的flags用来表示传输方向：bit 0等于I2C\_M\_RD表示读，bit 0等于0表示写
 -   一个i2c\_msg要么是读，要么是写
 
-  举例：设备地址为0x50的EEPROM，要读取它里面存储地址为0x10的一个字节，应该构造几个i2c\_msg？要构造2个i2c\_msg
+举例：设备地址为0x50的EEPROM，要读取它里面存储地址为0x10的一个字节，应该构造几个i2c\_msg？要构造2个i2c\_msg
 
-    c) 第一个i2c\_msg表示写操作，把要访问的存储地址0x10发给设备
+c) 第一个i2c\_msg表示写操作，把要访问的存储地址0x10发给设备
 
-    d) 第二个i2c\_msg表示读操作
+d) 第二个i2c\_msg表示读操作
 
-  代码如下：
+代码如下：
 
 ```plain
 u8 data_addr = 0x10;
@@ -504,31 +504,31 @@ msgs[1].buf    = &data;
 
 ### 4.2 内核里怎么传输数据
 
-  使用一句话概括I2C传输：
+使用一句话概括I2C传输：
 
-    a) APP通过I2C Controller与I2C Device传输数据
+a) APP通过I2C Controller与I2C Device传输数据
 
-    b) APP通过i2c\_adapter与i2c\_client传输i2c\_msg
+b) APP通过i2c\_adapter与i2c\_client传输i2c\_msg
 
-    c) 内核函数i2c\_transfer
+c) 内核函数i2c\_transfer
 
-    i2c\_msg里含有addr，所以这个函数里不需要i2c\_client
+i2c\_msg里含有addr，所以这个函数里不需要i2c\_client
 
-<img src={require('./images/05-i2cprogramming-22.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-22.png').default} alt="image.png" className="doc-image--80" />
 
 ## 5. 无需编写驱动程序即可访问I2C设备
 
-  APP访问硬件肯定是需要驱动程序的，对于I2C设备，内核提供了驱动程序\***drivers/i2c/i2c-dev.c****\***，通过它可以直接使用下面的I2C控制器驱动程序来访问I2C设备。
+APP访问硬件肯定是需要驱动程序的，对于I2C设备，内核提供了驱动程序\***drivers/i2c/i2c-dev.c****\***，通过它可以直接使用下面的I2C控制器驱动程序来访问I2C设备。
 
 框架如下：
 
-<img src={require('./images/05-i2cprogramming-24.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/05-i2cprogramming-24.png').default} alt="image.png" className="doc-image--80" />
 
-  i2c-tools是一套好用的工具，也是一套示例代码。
+i2c-tools是一套好用的工具，也是一套示例代码。
 
 ### 5.1 体验I2C-Tools
 
-  使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
+使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
 
 所以使用I2C-Tools时也需要指定：
 
@@ -591,7 +591,7 @@ I2C Block Read                   yes
 
 -   i2cget：I2C读
 
-  使用说明如下:
+使用说明如下:
 
 ```
 # i2cget
@@ -605,7 +605,7 @@ I2C Block Read                   yes
 Append p for SMBus PEC
 ```
 
-  使用示例：
+使用示例：
 
 ```plain
 // 读一个字节: I2CBUS为0、1、2等整数, 表示I2C Bus; CHIP-ADDRESS表示设备地址
@@ -629,7 +629,7 @@ i2cget -f -y I2CBUS CHIP-ADDRESS DATA-ADDRESS MODE
 
 -   i2cset：I2C写
 
-  使用说明如下：
+使用说明如下：
 
 ```plain
 # i2cset
@@ -645,7 +645,7 @@ i2cget -f -y I2CBUS CHIP-ADDRESS DATA-ADDRESS MODE
 Append p for SMBus PEC
 ```
 
-  使用示例：
+使用示例：
 
 ```plain
 // 写一个字节: I2CBUS为0、1、2等整数, 表示I2C Bus; CHIP-ADDRESS表示设备地址
@@ -687,7 +687,7 @@ Append p for SMBus PEC
 
 -   i2ctransfer：I2C传输(不是基于SMBus)
 
-  使用说明如下：
+使用说明如下：
 
 ```plain
 # i2ctransfer
@@ -707,7 +707,7 @@ Example (same EEPROM, at offset 0x42 write 0xff 0xfe ... 0xf0):
   # i2ctransfer 0 w17@0x50 0x42 0xff-
 ```
 
-  使用举例：
+使用举例：
 
 ```plain
 // Example (bus 0, read 8 byte at offset 0x64 from EEPROM at 0x50):
@@ -725,9 +725,9 @@ Example (same EEPROM, at offset 0x42 write 0xff 0xfe ... 0xf0):
 
 ### 5.2 I2C-Tools访问I2C设备的2种方式
 
-  I2C-Tools可以通过SMBus来访问I2C设备，也可以使用一般的I2C协议来访问I2C设备。
+I2C-Tools可以通过SMBus来访问I2C设备，也可以使用一般的I2C协议来访问I2C设备。
 
-  使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
+使用一句话概括I2C传输：APP通过I2C Controller与I2C Device传输数据。
 
 在APP里，有这几个问题：
 
@@ -738,7 +738,7 @@ Example (same EEPROM, at offset 0x42 write 0xff 0xfe ... 0xf0):
 
 ② 怎么指定I2C设备？
 
- 通过ioctl指定I2C设备的地址
+通过ioctl指定I2C设备的地址
 
 -   ioctl(file, I2C\_SLAVE, address)
 
@@ -750,7 +750,7 @@ Example (same EEPROM, at offset 0x42 write 0xff 0xfe ... 0xf0):
 
 ③ 怎么传输数据？
 
- 三种方式
+三种方式
 
 -   一般的I2C方式：ioctl(file, I2C\_RDWR, &rdwr)
 -   SMBus方式：ioctl(file, I2C\_SMBUS, &args)

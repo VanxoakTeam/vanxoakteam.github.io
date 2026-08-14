@@ -13,15 +13,15 @@ sidebar_position: 1
 
 ## 1. 以太网接口介绍
 
-  HD-RK3506-EVB评估套件标配2个以太网口，分布如下所示。
+HD-RK3506-EVB评估套件标配2个以太网口，分布如下所示。
 
-<img src={require('./images/eth.png').default} alt="网口.png" style={{display: 'block', margin: '20px auto', maxWidth: '25%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/eth.png').default} alt="网口.png" className="doc-image--25" />
 
-  插入网线后，会自动分配到IP地址，可使用`ifconfig -a`命令查看IP地址，如下所示。
+插入网线后，会自动分配到IP 地址，可使用`ifconfig -a`命令查看IP 地址，如下所示。
 
-  **HD-RK3506-EVB 两个网口都是固定IP。用户可以通过通过固定IP SSH访问开发板。**
+**HD-RK3506-EVB 两个网口都是固定IP。用户可以通过通过固定IP SSH访问开发板。**
 
-  **（删减版网口通过ETH1访问，固定IP为192.168.1.12）**
+**（删减版网口通过ETH1访问，固定IP为192.168.1.12）**
 
 ```shell
 root@rk3506-buildroot:/# ifconfig
@@ -60,26 +60,26 @@ wlan0     Link encap:Ethernet  HWaddr 88:49:2D:09:48:DE
 
 ```
 
-  **网络相关接口定义如下表所示。**
+**网络相关接口定义如下表所示。**
 
 | 接口 | 描述 |
 | --- | --- |
 | eth0 | 以太网口，10/100Mbps自适应，RJ45口 |
 | eth1 | 以太网口，10/100Mbps自适应，RJ45口 |
 | lo | 软件回环接口，启动后网口可ping通自己 |
-| wlan0 | WiFi 网络接口 |
+| wlan0 | Wi-Fi 网络接口 |
 
 ## 2. 设置IP
 
 ### 2.1 静态配置
 
-  临时配置静态 IP，可使用 ip addr 命令
+临时配置静态 IP，可使用 ip addr 命令
 
 ```shell
 root@rk3506-buildroot:/# ip addr add 192.168.1.10/24 dev eth0
 ```
 
-  永久配置静态 IP，可修改 /etc/network/interfaces 文件
+永久配置静态 IP，可修改 /etc/network/interfaces 文件
 
 ```shell
 # 定义静态 IP 配置
@@ -94,7 +94,7 @@ gateway 192.168.1.1
 netmask 255.255.255.0
 ```
 
-  参数说明：
+参数说明：
 
 > -   interface eth0：指定配置的网络接口（如 eth0）。
 > -   static ip\_address=192.168.1.10：设置静态 IP 地址。
@@ -104,7 +104,7 @@ netmask 255.255.255.0
 
 ### 2.2 动态分配IP
 
-  动态IP一般适用于网内有大量的同样的设备或外网环境，典型的以太网或4G接口是需要动态分配IP，使用`udhcpc`服务分配IP，命令如下所示。
+动态IP一般适用于网内有大量的同样的设备或外网环境，典型的以太网或4G接口是需要动态分配IP，使用`udhcpc`服务分配IP，命令如下所示。
 
 ```shell
 root@rk3506-buildroot:/# udhcpc -i eth0
@@ -112,21 +112,21 @@ root@rk3506-buildroot:/# udhcpc -i eth0
 
 ## 3. 设置网关
 
-  Linux通过IP路由表来管理网络通信，当需要网络通讯前，Linux系统通过Destination决定网段，优先选择同一网段的接口通讯。可以使用`route`命令可以用来添加、删除网关或查看网关配置。
+Linux通过IP路由表来管理网络通信，当需要网络通讯前，Linux系统通过Destination决定网段，优先选择同一网段的接口通讯。可以使用`route`命令可以用来添加、删除网关或查看网关配置。
 
-  使用如下命令给网卡添加默认网关：
+使用如下命令给网卡添加默认网关：
 
 ```shell
 route add default gw 网关IP地址 网络接口名
 ```
 
-  例如要将方面`eth0`的默认网关设置为`192.168.1.111`，执行如下命令：
+例如要将方面`eth0`的默认网关设置为`192.168.1.111`，执行如下命令：
 
 ```shell
 root@rk3506-buildroot:/# route add default gw 192.168.1.111 eth0
 ```
 
-  使用 `route -n`命令可以查看当前的网关配置：
+使用 `route -n`命令可以查看当前的网关配置：
 
 ```shell
 root@rk3506-buildroot:/# route -n
@@ -138,13 +138,13 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 192.168.1.0     0.0.0.0         255.255.255.0   U     1004   0        0 eth0
 ```
 
-  使用如下命令删除网卡上已经配置的默认网关：
+使用如下命令删除网卡上已经配置的默认网关：
 
 ```shell
 route del default gw 网关IP地址 网络接口名
 ```
 
-  例如要将eth0上配置的IP为192.168.1.111的默认网关删除，执行如下命令：
+例如要将eth0上配置的IP为192.168.1.111的默认网关删除，执行如下命令：
 
 ```shell
 root@rk3506-buildroot:/# route del default gw 192.168.1.111 eth0 
@@ -152,9 +152,9 @@ root@rk3506-buildroot:/# route del default gw 192.168.1.111 eth0
 
 ## 4. 设置DNS
 
-  如需要使用域名访问互联网，例如ping百度，则需要配置DNS服务器。配置方法如下：
+如需要使用域名访问互联网，例如ping百度，则需要配置DNS服务器。配置方法如下：
 
-  编辑`/etc/resolv.conf`文件（如果不存在则创建一个新的文件），并在其中添加一个或者多个DNS服务器的IP地址，例如要将`114.114.114.114`作为首选的DNS服务器，将8.8.8.8作为备选的DNS服务器，则在`/etc/resolv.conf`添加如下内容：
+编辑`/etc/resolv.conf`文件（如果不存在则创建一个新的文件），并在其中添加一个或者多个DNS服务器的IP 地址，例如要将`114.114.114.114`作为首选的DNS服务器，将8.8.8.8作为备选的DNS服务器，则在`/etc/resolv.conf`添加如下内容：
 
 ```shell
 nameserver 114.114.114.114
@@ -163,7 +163,7 @@ nameserver 8.8.8.8
 
 ## 5. 网络连通测试
 
-  使用 ping 命令测试网络连通性
+使用 ping 命令测试网络连通性
 
 ```shell
 root@rk3506-buildroot:/# ping www.baidu.com -I eth0

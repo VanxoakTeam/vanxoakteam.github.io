@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# RTC时钟
+# RTC 时钟
 
 :::tip 提示
 
@@ -13,13 +13,13 @@ sidebar_position: 7
 
 > 注：HD-RK3506-EVB板载RTC，但未预装RTC电池（CR2032），购买开发板时赠送RTC电池，用户可接上电池，体验RTC功能。
 
-<img src={require('./images/rtc.png').default} alt="网口.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/rtc.png').default} alt="网口.png" className="doc-image--80" />
 
 ## 1. 设置时钟
 
-  Linux将时钟分为系统时钟(System Clock)和硬件时钟(Real Time Clock，简称RTC)两种。系统时钟是由Linux内核所维护的时钟，用户一般使用和看到的都是系统时钟。而硬件时钟则是由主板上的电池供电的主板硬件时钟。系统时钟在系统断电后即会消失，但RTC 时钟在主板电池有电的情况下会长期运行。
+Linux将时钟分为系统时钟(System Clock)和硬件时钟(Real Time Clock，简称RTC)两种。系统时钟是由Linux内核所维护的时钟，用户一般使用和看到的都是系统时钟。而硬件时钟则是由主板上的电池供电的主板硬件时钟。系统时钟在系统断电后即会消失，但RTC 时钟在主板电池有电的情况下会长期运行。
 
-  每次上电时，Linux内核都会读取主板上的RTC时钟，并将它同步到系统时钟。下面列出一些与时钟相关的命令：
+每次上电时，Linux内核都会读取主板上的RTC时钟，并将它同步到系统时钟。下面列出一些与时钟相关的命令：
 
 - 使用`date`命令可以查看系统时钟：
 
@@ -80,7 +80,7 @@ root@rk3506-buildroot:/# hwclock
 
 ## 2. 设置时区
 
-  设置时区的方法如下：
+设置时区的方法如下：
 
 ```shell
 # 查看当前时区文件，默认UTC
@@ -99,4 +99,4 @@ root@rk3506-buildroot:/# date -R
 Fri, 11 Feb 2022 10:33:11 +0800
 ```
 
-  如需要设置其它时区，可以查看/usr/share/zoneinfo 目录下对应的时区，然后链接到 /etc/localtime 即可。
+如需要设置其它时区，可以查看/usr/share/zoneinfo 目录下对应的时区，然后链接到 /etc/localtime 即可。

@@ -15,15 +15,15 @@ sidebar_position: 2
 
 ## 1. 依赖库安装
 
-  编译 rk3506 Linux SDK包需要一些依赖，下面将进行安装依赖操作。
+编译 rk3506 Linux SDK包需要一些依赖，下面将进行安装依赖操作。
 
-  安装依赖之前，最好执行以下指令更新软件包：
+安装依赖之前，最好执行以下指令更新软件包：
 
 ```shell
 sudo apt update
 ```
 
-  安装依赖
+安装依赖
 
 ```shell
 #安装编译所需工具
@@ -35,7 +35,7 @@ libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev \
 libmpc-dev bc python-is-python3 python2 file rsync bsdmainutils mtd-utils -y
 ```
 
-  确保所有依赖安装完成。
+确保所有依赖安装完成。
 
 ## 2. 检查编译环境
 
@@ -80,7 +80,7 @@ user@ubuntu:~$ lz4 -v
 
 ### 3.1 选择板级配置
 
-  第一次编译时会选择板级配置，选择对应配置文件。
+第一次编译时会选择板级配置，选择对应配置文件。
 
 ```shell
 itrunk@itrunk:/work/rk3506_linux6.1_sdk_v1.2.0$ ./build.sh lunch
@@ -114,27 +114,27 @@ itrunk@itrunk:/work/rk3506_linux6.1_v1.2.0$ ./build.sh
 | **芯片** | **FLASH** | **底板**      | **配置**                                  |
 | -------- | --------- | ------------- | ----------------------------------------- |
 | RK3506G  | NAND      | HD-RK3506-EVB | rockchip\_rk3506\_g\_evb\_nand\_defconfig |
-| RK3506G  | SD卡      | HD-RK3506-EVB | rockchip\_rk3506\_g\_evb\_sd\_defconfig   |
+| RK3506G  | SD 卡      | HD-RK3506-EVB | rockchip\_rk3506\_g\_evb\_sd\_defconfig   |
 
 ### 3.2 完整编译
 
-  在当前目录，执行以下命令，编译所有，包括uboot、kernel、buildroot、recovery等一键编译。
+在当前目录，执行以下命令，编译所有，包括uboot、kernel、buildroot、recovery等一键编译。
 
 ```shell
 ./build.sh 
 ```
 
-  整个过程耗时较长，根据电脑性能决定编译时间。
+整个过程耗时较长，根据电脑性能决定编译时间。
 
-<img src={require('./images/03-fullsystembuild-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-fullsystembuild-01.png').default} alt="image.png" className="doc-image--80" />
 
-  编译完成后，固件将会存放在 rockdev目录。
+编译完成后，固件将会存放在 rockdev目录。
 
-<img src={require('./images/03-fullsystembuild-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-fullsystembuild-02.png').default} alt="image.png" className="doc-image--80" />
 
 ### 3.3 单独编译
 
-  当需要单独更新内核或uboot时，可使用以下命令单独编译。
+当需要单独更新内核或uboot时，可使用以下命令单独编译。
 
 ```shell
 ./build.sh u-boot						# 单独编译u-boot
@@ -146,9 +146,9 @@ itrunk@itrunk:/work/rk3506_linux6.1_v1.2.0$ ./build.sh
 
 ### 3.4 打包固件
 
-  执行以下命令，将会重新打包所有固件。
+执行以下命令，将会重新打包所有固件。
 
-  适合单独编译后，需要把修改的u-boot或内核，合并成整包固件，即rockdev/update.img。用户可以直接烧录该固件。
+适合单独编译后，需要把修改的u-boot或内核，合并成整包固件，即rockdev/update.img。用户可以直接烧录该固件。
 
 ```shell
 ./build.sh updateimg
@@ -156,7 +156,7 @@ itrunk@itrunk:/work/rk3506_linux6.1_v1.2.0$ ./build.sh
 
 ### 3.5 固件组成
 
-  系统固件各个组成部分的来源如下表所示。
+系统固件各个组成部分的来源如下表所示。
 
 | 来源 | 文件 | 描述 |
 | --- | --- | --- |
@@ -173,7 +173,7 @@ itrunk@itrunk:/work/rk3506_linux6.1_v1.2.0$ ./build.sh
 
 ## 4. update.img打包制作
 
-  进入SDK目录查看 tools/linux/Linux\_Pack\_Firmware/rockdev/rk3506-package-file文件，其中未被#注释的固件都会在打包过程中被打包进update.img。
+进入SDK目录查看 tools/linux/Linux\_Pack\_Firmware/rockdev/rk3506-package-file文件，其中未被#注释的固件都会在打包过程中被打包进update.img。
 
 ```shell
 # NAME		Relative path
@@ -198,7 +198,7 @@ misc		Image/misc.img
 #recover-script	recover-script
 ```
 
-  一般此文件无须修改，将我们自己的制作的固件放入`rockdev`，固件名与package-file文件一样：
+一般此文件无须修改，将我们自己的制作的固件放入`rockdev`，固件名与package-file文件一样：
 
 ```shell
 vanxoak@bab121111f64:/work/bsp/rk3506/rk3506-linux6.1-sdk_release$  ls rockdev/
@@ -206,7 +206,7 @@ boot.img           misc.img  parameter.txt  uboot.img
 MiniLoaderAll.bin  oem.img   recovery.img   rootfs.img   userdata.img
 ```
 
-  执行命令打包整包 `./build.sh updateimg`，最后会在`rockdev`目录下生成新的`update.img`。
+执行命令打包整包 `./build.sh updateimg`，最后会在`rockdev`目录下生成新的`update.img`。
 
 ```shell
 vanxoak@bab121111f64:/work/bsp/rk3506/rk3506-linux6.1-sdk_release$ ./build.sh updateimg

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# LVGL应用编程
+# LVGL 应用编程
 
 :::tip 提示
 
@@ -15,33 +15,33 @@ sidebar_position: 1
 
 ### 1.1 新建项目
 
-  在rk3506\_linux6.1\_v1.2.0\\app\\lvgl\_demo 下新建LVGL工程，复制一份motor\_demo，重命名为my\_demo。
+在rk3506\_linux6.1\_v1.2.0\\app\\lvgl\_demo 下新建LVGL工程，复制一份motor\_demo，重命名为my\_demo。
 
-<img src={require('./images/01-lvglprogramming-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-lvglprogramming-01.png').default} alt="image.png" className="doc-image--80" />
 
-  在CMakeLists.txt 中添加配置，增加额外配置 `LV_USE_MY_DEMO`，就以下代码进行说明。
+在CMakeLists.txt 中添加配置，增加额外配置 `LV_USE_MY_DEMO`，就以下代码进行说明。
 
-  当变量`LV_USE_RK_DEMO`被定义时，编译`rk_demo`工程。否则编译其他工程，默认编译LV\_Widgets。
+当变量`LV_USE_RK_DEMO`被定义时，编译`rk_demo`工程。否则编译其他工程，默认编译LV\_Widgets。
 
-  我们新建的LVGL工程为 `my_demo`，直接在后面添加编译`my_demo`工程。
+我们新建的LVGL工程为 `my_demo`，直接在后面添加编译`my_demo`工程。
 
-<img src={require('./images/01-lvglprogramming-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-lvglprogramming-02.png').default} alt="image.png" className="doc-image--80" />
 
 ### 1.2 编译
 
-  进入rk3506\_linux6.1\_bsp/buildroot目录，执行如下指令编译rk\_demo\_test程序。
+进入rk3506\_linux6.1\_bsp/buildroot目录，执行如下指令编译rk\_demo\_test程序。
 
 ```bash
 make lvgl-reconfigure lv_drivers-reconfigure lvgl_demo-reconfigure -j20
 ```
 
-  生成可执行文件路径：`rk3506_linux6.1_sdk_v1.2.0/buildroot/output/rockchip_hd_rk3506g_evb_nand/build/lvgl_demo/my_demo`目录
+生成可执行文件路径：`rk3506_linux6.1_sdk_v1.2.0/buildroot/output/rockchip_hd_rk3506g_evb_nand/build/lvgl_demo/my_demo`目录
 
-<img src={require('./images/01-lvglprogramming-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-lvglprogramming-03.png').default} alt="image.png" className="doc-image--80" />
 
 ### 1.3 执行程序
 
-  将rk\_demo\_test拷贝到RK3506开发板上，给予可执行权限。
+将rk\_demo\_test拷贝到RK3506开发板上，给予可执行权限。
 
 ```bash
 chmod a+x motor_demo
@@ -50,19 +50,19 @@ chmod a+x motor_demo
 
 ## 2. 单独编译 LVGL 程序
 
-  HD-RK3506-EVB 设备默认搭载并运行基于LVGL的应用程序。LVGL是一个广受认可的、免费且开源的轻量级嵌入式图形库，专为满足嵌入式系统的图形需求而设计。
+HD-RK3506-EVB 设备默认搭载并运行基于LVGL的应用程序。LVGL是一个广受认可的、免费且开源的轻量级嵌入式图形库，专为满足嵌入式系统的图形需求而设计。
 
-  对于大部分用户，只需要修改LVGL程序，在SDK中编译比较繁琐。所以提供了单独编译LVGL应用程序的方法。
+对于大部分用户，只需要修改LVGL程序，在SDK中编译比较繁琐。所以提供了单独编译LVGL应用程序的方法。
 
 ### 2.1 准备工作
 
-  在单独编译LVGL前，需要准备包含LVGL库的工具链。在SDK目录，使用 ./build.sh bmake:sdk 生成SDK工具链。生成工具链的目录为：buildroot/output/rockchip\_hd\_rk3506g\_evb\_nand/images/arm-buildroot-linux-gnueabihf\_sdk-buildroot.tar.gz
+在单独编译LVGL前，需要准备包含LVGL库的工具链。在SDK目录，使用 ./build.sh bmake:sdk 生成SDK工具链。生成工具链的目录为：buildroot/output/rockchip\_hd\_rk3506g\_evb\_nand/images/arm-buildroot-linux-gnueabihf\_sdk-buildroot.tar.gz
 
-  **该工具链已打包，请访问资料下载章节进行下载。**
+**该工具链已打包，请访问资料下载章节进行下载。**
 
 ### 2.2 安装工具链
 
-  默认安装到opt目录，命令如下：
+默认安装到opt目录，命令如下：
 
 ```bash
 sudo tar xvzf arm-buildroot-linux-gnueabihf_sdk-buildroot.tar.gz -C /opt
@@ -70,9 +70,9 @@ sudo tar xvzf arm-buildroot-linux-gnueabihf_sdk-buildroot.tar.gz -C /opt
 
 ### 2.3 工程demo
 
-  [lvgl_ui_demo.zip](https://vanxoak.yuque.com/attachments/yuque/0/2026/zip/57754166/1784099381354-f7e07c22-50c9-4a0a-bf3d-4146dc9c9e30.zip)
+示例源码包：[lvgl_ui_demo.zip](https://download.vanxoak.com/files/products/hd-rk3506-evb/apps/lvgl_ui_demo.zip)。下载完成后，将源码包解压到 Ubuntu 开发主机的工作目录。
 
-<img src={require('./images/01-lvglprogramming-04.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-lvglprogramming-04.png').default} alt="image.png" className="doc-image--80" />
 
 #### 1）toolchain-arm.cmake
 
@@ -97,11 +97,11 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 ```
 
-  toolchain-arm.cmake用来指定交叉工具链。
+toolchain-arm.cmake用来指定交叉工具链。
 
 #### 2）lvgl9目录
 
-  lvgl9目录中，主要是LVGL9和硬件适配的接口，已经调整OK，不用修改。
+lvgl9目录中，主要是LVGL9和硬件适配的接口，已经调整OK，不用修改。
 
 #### 3）main
 
@@ -170,7 +170,7 @@ int main(int argc, char **argv)
 
 ```
 
-  main文件是一个简单的程序，lv\_port\_init(0, 0, 0); 用来初始化lvgl。后续代码为创建一个label，进行简单显示。
+main文件是一个简单的程序，lv\_port\_init(0, 0, 0); 用来初始化lvgl。后续代码为创建一个label，进行简单显示。
 
 ### 2.4 编译
 
@@ -181,9 +181,9 @@ cd build
 make -j8
 ```
 
-  编译完成后，会在build目录得到 lvgl\_ui\_demo 文件。可直接拷贝到开发板执行，例如拷贝放到到root目录。
+编译完成后，会在build目录得到 lvgl\_ui\_demo 文件。可直接拷贝到开发板执行，例如拷贝放到到root目录。
 
-  注意：执行前，需要杀掉默认执行的LVGL图形化页面程序，否则可能会冲突，导致显示失败。
+注意：执行前，需要杀掉默认执行的LVGL图形化页面程序，否则可能会冲突，导致显示失败。
 
 ```bash
 root@rk3506-buildroot:/root# killall lv_demo
@@ -246,6 +246,6 @@ UI created, entering main loop...
 load library(librga.so) in releative path
 ```
 
-  执行完成后，LVGL Hello\_World示例运行如下图所示：
+执行完成后，LVGL Hello\_World示例运行如下图所示：
 
-<img src={require('./images/01-lvglprogramming-05.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/01-lvglprogramming-05.png').default} alt="image.png" className="doc-image--80" />

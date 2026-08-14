@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# SDK开发指南
+# SDK 开发指南
 
 :::tip 提示
 
@@ -15,24 +15,24 @@ sidebar_position: 3
 
 ### 1.1 配置u-boot
 
-  u-boot是一个引导加载程序，用于初始化硬件并引导操作系统。一般并不需要修改，RK对于原生的u-boot有了完善的支持，例如初始化硬件，uboot会使用kernel的设备树来初始化。
+u-boot是一个引导加载程序，用于初始化硬件并引导操作系统。一般并不需要修改，RK对于原生的u-boot有了完善的支持，例如初始化硬件，uboot会使用kernel的设备树来初始化。
 
-  如果需要修改u-boot，往往是修改相应处理器的uboot配置文件、设备树。例如rk3506处理器，配置文件是 `u-boot/configs/rk3506\_defconfig`，设备树在 u-boot/arch/arm/dts/目录里。
+如果需要修改u-boot，往往是修改相应处理器的uboot配置文件、设备树。例如rk3506处理器，配置文件是 `u-boot/configs/rk3506\_defconfig`，设备树在 u-boot/arch/arm/dts/目录里。
 
-  uboot配置文件可以在板级配置文件里查看需要修改那个文件。
+uboot配置文件可以在板级配置文件里查看需要修改那个文件。
 
-  进入 SDK/u-boot/ 目录下，执行以下指令，打开配置界面，
+进入 SDK/u-boot/ 目录下，执行以下指令，打开配置界面，
 
 ```bash
 make rk3506_defconfig
 make menuconfig
 ```
 
-  运行成功后如下：
+运行成功后如下：
 
-<img src={require('./images/04-sdkdevelopmentguide-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/04-sdkdevelopmentguide-01.png').default} alt="image.png" className="doc-image--80" />
 
-  如果执行了修改，需要进行保存`Save` 然后 退出`Exit`。仅仅这样操作并不会修改 `rk3506_defconfig`，需要进行以下操作：
+如果执行了修改，需要进行保存`Save` 然后 退出`Exit`。仅仅这样操作并不会修改 `rk3506_defconfig`，需要进行以下操作：
 
 ```bash
 make savedefconfig
@@ -41,7 +41,7 @@ cp defconfig configs/rk3506_defconfig
 
 ### 1.2 u-boot设备树修改
 
-  如果需要修改设备树，在 SDK/u-boot/arch/arm/dts/ 目录下，找到相应的设备树文件进行修改，rk3506的设备树文件包含关系如下：
+如果需要修改设备树，在 SDK/u-boot/arch/arm/dts/ 目录下，找到相应的设备树文件进行修改，rk3506的设备树文件包含关系如下：
 
 ```bash
 rk3506-evb.dts
@@ -52,7 +52,7 @@ rk3506-u-boot.dtsi
 
 ### 1.3 u-boot编译
 
-  进入SDK源码根目录，执行以下指令，编译uboot：
+进入SDK 源码根目录，执行以下指令，编译uboot：
 
 ```bash
 ./build.sh uboot
@@ -62,28 +62,28 @@ rk3506-u-boot.dtsi
 
 ### 2.1 配置kernel
 
-  在kernel阶段，常常需要增减驱动、设备树节点，来适配板载硬件功能。kernel源码在 SDK/kernel-6.1/ 目录下。
+在kernel阶段，常常需要增减驱动、设备树节点，来适配板载硬件功能。kernel源码在 SDK/kernel-6.1/ 目录下。
 
-<img src={require('./images/04-sdkdevelopmentguide-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/04-sdkdevelopmentguide-02.png').default} alt="image.png" className="doc-image--80" />
 
 ### 2.2 修改内核配置
 
-  内核对应配置在`rk3506_linux6.1_sdk_v1.2.0/kernel6.1/arch/arm/configs/`目录，此目录存放内核配置。请进入以下目录，根据以下内容匹配不同的开发板。
+内核对应配置在`rk3506_linux6.1_sdk_v1.2.0/kernel6.1/arch/arm/configs/`目录，此目录存放内核配置。请进入以下目录，根据以下内容匹配不同的开发板。
 
 | 版本                  | 内核配置                                       |
 | --------------------- | ---------------------------------------------- |
 | RK3506G-EVB-NAND      | vanxoak\_hd\_rk3506g\_evb\_nand\_defconfig     |
 | RK3506G-EVB-SD        | vanxoak\_hd\_rk3506g\_evb\_sd\_defconfig       |
 
-  如果想对内核源码进行配置，例如把某个驱动编译进内核或者编译成模块，进入kernel源码目录，执行以下指令，打开内核的配置界面：
+如果想对内核源码进行配置，例如把某个驱动编译进内核或者编译成模块，进入kernel源码目录，执行以下指令，打开内核的配置界面：
 
 ```bash
 make ARCH=arm menuconfig
 ```
 
-  执行后，会进入内核配置界面，如下：
+执行后，会进入内核配置界面，如下：
 
-  如果修改了内核配置信息，除了保存退出，还需要执行以下操作，否则编译时会复原为修改前的配置。
+如果修改了内核配置信息，除了保存退出，还需要执行以下操作，否则编译时会复原为修改前的配置。
 
 ```bash
 make ARCH=arm savedefconfig
@@ -92,14 +92,14 @@ cp defconfig arch/arm64/configs/vanxoak_hd_rk3506g_evb_nand_defconfig
 
 ### 2.3 内核设备树修改
 
-  内核设备树文件在`rk3506_linux6.1_sdk_v1.2.0/kernel-6.1/arch/arm/boot/dts/`目录，此目录存放内核设备树文件。请进入以下目录，根据以下内容匹配不同的开发板。
+内核设备树文件在`rk3506_linux6.1_sdk_v1.2.0/kernel-6.1/arch/arm/boot/dts/`目录，此目录存放内核设备树文件。请进入以下目录，根据以下内容匹配不同的开发板。
 
 | 版本                  | 内核设备树                         |
 | --------------------- | ---------------------------------- |
 | RK3506G-EVB-NAND      | vanxoak-hd-rk3506g-evb-nand-v1.dts |
 | RK3506G-EVB-SD        | vanxoak-hd-rk3506g-evb-sd-v1.dts   |
 
-  例如HD-RK3506-EVB评估版设备树文件是`vanxoak-hd-rk3506g-evb-nand-v1.dts`，存放在`rk3506_linux6.1_sdk_v1.2.0/kernel-6.1/arch/arm/boot/dts/`目录下，`vanxoak-hd-rk3506g-evb-nand-v1.dts`包含多个dtsi文件，其包含关系如下：
+例如HD-RK3506-EVB评估版设备树文件是`vanxoak-hd-rk3506g-evb-nand-v1.dts`，存放在`rk3506_linux6.1_sdk_v1.2.0/kernel-6.1/arch/arm/boot/dts/`目录下，`vanxoak-hd-rk3506g-evb-nand-v1.dts`包含多个dtsi文件，其包含关系如下：
 
 ```bash
 vanxoak-hd-rk3506g-evb-nand-v1.dts
@@ -113,7 +113,7 @@ vanxoak-hd-rk3506g-evb-nand-v1.dts
 
 ### 2.4 编译内核
 
-  进入SDK源码根目录，执行以下指令，编译Kernel
+进入SDK 源码根目录，执行以下指令，编译Kernel
 
 ```bash
 ./build.sh kernel
@@ -123,13 +123,13 @@ vanxoak-hd-rk3506g-evb-nand-v1.dts
 
 ### 3.1 配置buildroot
 
-  Buildroot 是一个开源工具，用于快速生成嵌入式 Linux 系统的根文件系统、内核和引导加载程序。RK的SDK里还有Yocto构建工具，默认是使用 Buildroot ，这里使用的也是 Buildroot。
+Buildroot 是一个开源工具，用于快速生成嵌入式 Linux 系统的根文件系统、内核和引导加载程序。RK的SDK里还有Yocto构建工具，默认是使用 Buildroot ，这里使用的也是 Buildroot。
 
-  Buildroot 的源码存放在 SDK/buildroot/ 目录底下。
+Buildroot 的源码存放在 SDK/buildroot/ 目录底下。
 
-<img src={require('./images/04-sdkdevelopmentguide-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/04-sdkdevelopmentguide-03.png').default} alt="image.png" className="doc-image--80" />
 
-  Buildroot 的目录结构如下所示：
+Buildroot 的目录结构如下所示：
 
 ```bash
 cxw@vanxoak:/work/rk3506_linux6.1_sdk_v1.2.0_iot_evb/buildroot$ tree -L 1
@@ -162,13 +162,13 @@ cxw@vanxoak:/work/rk3506_linux6.1_sdk_v1.2.0_iot_evb/buildroot$ tree -L 1
 └── utils                      #实用工具和辅助脚本，用于支持构建过程或提供其他功能。
 ```
 
-  进入SDK源码的Buildroot目录，在当前目录下，执行以下操作，可以选择对应开发板对应的Buildroot配置。
+进入 SDK 源码的 Buildroot 目录，执行以下操作选择与开发板对应的 Buildroot 配置。
 
 ```bash
 source envsetup.sh
 ```
 
-  例如选择，HD-RK3506-EVB评估底板，选择6。
+例如选择，HD-RK3506-EVB评估底板，选择6。
 
 ```bash
 cxw@vanxoak:/work/prj/rk3506_linux6.1_sdk_v1.2.0_iot_evb/buildroot$ source envsetup.sh
@@ -201,31 +201,31 @@ Using /work/prj/rk3506/rk3506_iot_origin/iot-qt-config-sdk/rk3506_linux6.1_sdk_v
 make: 离开目录“/work/prj/rk3506/rk3506_iot_origin/iot-qt-config-sdk/rk3506_linux6.1_sdk_v1.2.0_iot_evb/buildroot”
 ```
 
-  进入buildroot源码路径，执行以下指令：
+进入buildroot源码路径，执行以下指令：
 
 ```bash
 make menuconfig
 ```
 
-  执行后，会进入buildroot配置界面，如下：
+执行后，会进入buildroot配置界面，如下：
 
-<img src={require('./images/04-sdkdevelopmentguide-04.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/04-sdkdevelopmentguide-04.png').default} alt="image.png" className="doc-image--80" />
 
-  可以在配置界面，选上一些需要的package等，配置完成后，选择保存`Save`，然后退出`Exit`。
+可以在配置界面，选上一些需要的package等，配置完成后，选择保存`Save`，然后退出`Exit`。
 
-  执行以下指令即可保存：
+执行以下指令即可保存：
 
 ```bash
 make savedefconfig
 ```
 
-  如果编译后，配置未生效，需要手动替换buildroot相关配置，进入buildroot根目录。
+如果编译后，配置未生效，需要手动替换buildroot相关配置，进入buildroot根目录。
 
 ```bash
 cp .config configs/rockchip_hd_rk3506g_evb_nand_defconfig
 ```
 
-  buildroot配置文件在`rk3506_linux6.1_sdk_v1.2.0/buildroot/configs/`目录，此目录存放buildroot系统相关配置。
+buildroot配置文件在`rk3506_linux6.1_sdk_v1.2.0/buildroot/configs/`目录，此目录存放buildroot系统相关配置。
 
 不同的开发板对应的板级配置如下：
 
@@ -236,7 +236,7 @@ cp .config configs/rockchip_hd_rk3506g_evb_nand_defconfig
 
 ### 3.2 编译buildroot
 
-  进入SDK源码根目录，执行以下指令，编译buildroot：
+进入SDK 源码根目录，执行以下指令，编译buildroot：
 
 ```bash
 ./build.sh buildroot

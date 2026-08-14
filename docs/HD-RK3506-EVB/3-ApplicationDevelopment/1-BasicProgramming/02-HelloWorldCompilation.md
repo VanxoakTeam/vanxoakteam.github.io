@@ -11,7 +11,7 @@ sidebar_position: 2
 
 :::
 
-  使用熟悉的文本编辑器，编写一个简单的程序，往终端打印“HelloWorld”字符串，以下代码是一个简单的范例。
+使用熟悉的文本编辑器，编写一个简单的程序，往终端打印“HelloWorld”字符串，以下代码是一个简单的范例。
 
 ```c
 #include <stdio.h>
@@ -25,13 +25,13 @@ int main(int argc, char **argv)
 }
 ```
 
-  启动终端，进入 helloworld程序文件所在目录，输入编译命令对 helloworld.c进行编译：
+启动终端，进入 helloworld程序文件所在目录，输入编译命令对 helloworld.c进行编译：
 
 ```c
 user@ubuntu:~$ arm-buildroot-linux-gnueabihf-gcc helloworld.c -o helloworld
 ```
 
-  编译完毕，将得到HelloWorld文件，将HelloWorld程序下载到板子并运行
+编译完毕，将得到HelloWorld文件，将HelloWorld程序下载到板子并运行
 
 ```shell
 root@rk3506-buildroot:/# chmod a+x helloworld

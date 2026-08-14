@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# RK3506 SD卡启动指南
+# RK3506 SD 卡启动指南
 
 :::tip 提示
 
@@ -13,19 +13,19 @@ sidebar_position: 2
 
 ## 1. 概述
 
-  RK3506 平台支持 从 SD 卡直接启动系统，无需依赖 eMMC、NAND Flash 等外部存储介质。通过瑞芯微官方提供的 瑞芯微创建升级磁盘工具，结合编译生成的 `update.img` 固件文件，可方便地制作一张可引导的 SD 启动卡。
+RK3506 平台支持 从 SD 卡直接启动系统，无需依赖 eMMC、NAND Flash 等外部存储介质。通过瑞芯微官方提供的 瑞芯微创建升级磁盘工具，结合编译生成的 `update.img` 固件文件，可方便地制作一张可引导的 SD 启动卡。
 
 ## 2. 准备事项
 
-  在制作SD启动卡前，请确认以下准备工作：
+在制作SD启动卡前，请确认以下准备工作：
 
-### 2.1 准备支持SD卡启动的update.img固件
+### 2.1 准备支持SD 卡启动的update.img固件
 
-  用户可通过《资料下载章节》软件开发资料/系统固件中直接获取update.img。也可以通过SDK进行编译。
+用户可通过《资料下载章节》软件开发资料/系统固件中直接获取update.img。也可以通过SDK进行编译。
 
-  RK3506 SDK中提供了`HD-RK3506-EVB`从SD卡启动的配置，请查看《SDK编译》章节，根据文档进行操作。
+RK3506 SDK中提供了`HD-RK3506-EVB`从SD 卡启动的配置，请查看《SDK编译》章节，根据文档进行操作。
 
-  板级配置选择`rockchip_rk3506_evb_sd_defconfig`
+板级配置选择`rockchip_rk3506_evb_sd_defconfig`
 
 ```shell
 vanxaoxk@vanxaoxk:/work/rk3506_linux6.1_v1.2.0$ ./build.sh lunch            # 选择板级配置
@@ -48,29 +48,29 @@ Pick a defconfig:
 Which would you like? [1]:5
 ```
 
-  完整编译一次
+完整编译一次
 
 ```shell
 ./build.sh 
 ```
 
-  编译通过后，查看`rk3506_linux6.1_v1.2.0/rockdev`文件夹，得到最终的`update.img`。我们需要使用这个固件，来进行启动卡的制作。
+编译通过后，查看`rk3506_linux6.1_v1.2.0/rockdev`文件夹，得到最终的`update.img`。我们需要使用这个固件，来进行启动卡的制作。
 
 ### 2.2 获取瑞芯微创建升级磁盘工具
 
-  可直接进入SDK中的`rk3506_linux6.1_v1.2.0/tools/windows`目录，工具名称为`SDDiskTool_v1.78.zip`。也可通过`《资料下载章节》/软件开发资料/开发工具/开发工具软件`下载，工具名称为`SDDiskTool_v1.78.zip`。
+可直接进入SDK中的`rk3506_linux6.1_v1.2.0/tools/windows`目录，工具名称为`SDDiskTool_v1.78.zip`。也可通过`《资料下载章节》/软件开发资料/开发工具/开发工具软件`下载，工具名称为`SDDiskTool_v1.78.zip`。
 
-  解压zip压缩包。
+解压zip压缩包。
 
-<img src={require('./images/02-sdcardbootguide-01.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-01.png').default} alt="image.png" className="doc-image--80" />
 
-  进入`SDDiskTool_v1.78`文件夹目录。
+进入`SDDiskTool_v1.78`文件夹目录。
 
-<img src={require('./images/02-sdcardbootguide-04.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-04.png').default} alt="image.png" className="doc-image--80" />
 
-### 2.3 准备SD卡
+### 2.3 准备SD 卡
 
--   **SD卡容量大于等于8G**
+-   **SD 卡容量大于等于8G**
 -   通过USB读卡器连接到PC
 
 ### 2.4 宿主机环境
@@ -81,57 +81,57 @@ Which would you like? [1]:5
 
 ### 3.1 擦除EMMC 或 NAND内容
 
-  **使用镊子短接Recovery**，使用USB-C数据线，将电脑和开发板 USB Device进行连接。待电脑上位机RKDevTool软件检测到设备，显示"发现一个LOADER设备"后，断开镊子。
+**使用镊子短接Recovery**，使用USB-C数据线，将电脑和开发板 USB Device进行连接。待电脑上位机RKDevTool软件检测到设备，显示"发现一个LOADER设备"后，断开镊子。
 
-<img src={require('./images/02-sdcardbootguide-05.png').default} alt="RECOVER 示意图" style={{display: 'block', margin: '20px auto', maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-05.png').default} alt="RECOVER 示意图" className="doc-image--50" />
 
-  硬件进入Loader模式操作
+硬件进入Loader模式操作
 
-<img src={require('./images/02-sdcardbootguide-06.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-06.png').default} alt="image.png" className="doc-image--80" />
 
-  点击高级功能，擦除所有，擦除EMMC或NAND FLASH中的所有内容，确保启动是从SD卡启动，排除其他干扰。
+点击高级功能，擦除所有，擦除EMMC或NAND FLASH中的所有内容，确保启动是从SD 卡启动，排除其他干扰。
 
-<img src={require('./images/02-sdcardbootguide-07.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-07.png').default} alt="image.png" className="doc-image--80" />
 
-  瑞芯微开发工具-高级功能
+瑞芯微开发工具-高级功能
 
-  出现擦除成功LOG时，说明擦除成功，可进行下一步操作。
+出现擦除成功LOG时，说明擦除成功，可进行下一步操作。
 
-<img src={require('./images/02-sdcardbootguide-08.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-08.png').default} alt="image.png" className="doc-image--80" />
 
-  瑞芯微开发工具-擦除所有
+瑞芯微开发工具-擦除所有
 
 ### 3.2 打开瑞芯微创建升级磁盘工具制作SD启动卡
 
-  **使用管理员权限打开**`SD_Firmware_Tool.exe`工具。
+**使用管理员权限打开**`SD_Firmware_Tool.exe`工具。
 
-<img src={require('./images/02-sdcardbootguide-09.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-09.png').default} alt="image.png" className="doc-image--80" />
 
-  使用USB读卡器连接SD卡连接到PC中，该工具会识别到可移动磁盘设备，选择功能模式为SD启动，选择系统固件`update.img`，这里是直接从资料下载中获取的SD卡固件。
+使用USB读卡器连接SD 卡连接到PC中，该工具会识别到可移动磁盘设备，选择功能模式为SD启动，选择系统固件`update.img`，这里是直接从资料下载中获取的SD 卡固件。
 
-<img src={require('./images/02-sdcardbootguide-10.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-10.png').default} alt="image.png" className="doc-image--80" />
 
-  选择功能模式：
+选择功能模式：
 
-  点击开始创建，确保SD卡中没有重要内容，制作SD启动卡的过程中，将会格式化SD卡分区，点击是。
+点击开始创建，确保SD 卡中没有重要内容，制作SD启动卡的过程中，将会格式化SD 卡分区，点击是。
 
-<img src={require('./images/02-sdcardbootguide-11.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-11.png').default} alt="image.png" className="doc-image--80" />
 
-  格式化sd卡，等待制作完成。
+格式化sd卡，等待制作完成。
 
-<img src={require('./images/02-sdcardbootguide-02.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-02.png').default} alt="image.png" className="doc-image--80" />
 
-  制作sd启动卡，制作成功后，将会弹窗提醒。
+制作sd启动卡，制作成功后，将会弹窗提醒。
 
-<img src={require('./images/02-sdcardbootguide-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-sdcardbootguide-03.png').default} alt="image.png" className="doc-image--80" />
 
-  制作sd启动卡成功
+制作sd启动卡成功
 
 ### 3.3 验证SD启动卡
 
-  在`HD-RK3506-EVM`上插入SD卡，上电。
+在`HD-RK3506-EVM`上插入SD 卡，上电。
 
-  `Bootdev(atags)：mmc 0`表示从SD启动卡启动，说明SD启动卡制作成功。
+`Bootdev(atags)：mmc 0`表示从SD启动卡启动，说明SD启动卡制作成功。
 
 ```shell
 DM: v2
@@ -165,7 +165,7 @@ Hit key to stop autoboot('CTRL+C'):  0
 
 ```
 
-  查看系统磁盘大小。可以看到系统文件系统空间变大，说明SD启动卡成功启动。
+查看系统磁盘大小。可以看到系统文件系统空间变大，说明SD启动卡成功启动。
 
 ```shell
 root@rk3506-buildroot:/# df -h

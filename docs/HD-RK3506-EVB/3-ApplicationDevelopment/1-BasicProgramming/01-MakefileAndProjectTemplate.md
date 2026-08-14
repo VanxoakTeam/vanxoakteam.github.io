@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Makefile的使用及工程模板
+# Makefile 的使用及工程模板
 
 :::tip 提示
 
@@ -15,7 +15,7 @@ sidebar_position: 1
 
 ### 1.1 什么是 Makefile
 
-  Makefile 是 `make` 工具的配置文件，定义了一套规则来指导如何编译和链接程序。`make` 是一个自动化构建工具，通过读取 Makefile 中的依赖关系，**仅重新编译那些自上次编译后发生过更改的文件**，从而极大提升大型项目的构建效率。
+Makefile 是 `make` 工具的配置文件，定义了一套规则来指导如何编译和链接程序。`make` 是一个自动化构建工具，通过读取 Makefile 中的依赖关系，**仅重新编译那些自上次编译后发生过更改的文件**，从而极大提升大型项目的构建效率。
 
 ### 1.2 核心工作流程
 
@@ -60,7 +60,7 @@ target: prerequisites
 
 ### 2.3 函数
 
-  调用格式：`$(function arguments)` 或 `${function arguments}`
+调用格式：`$(function arguments)` 或 `${function arguments}`
 
 | 函数 | 说明 | 示例 |
 | --- | --- | --- |

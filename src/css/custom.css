@@ -44,7 +44,26 @@ th, td {
 
 /* ============ Image Style ============ */
 .markdown img {
+  display: block;
+  width: auto;
   max-width: 100%;
   height: auto;
+  margin: 1.25rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.markdown .doc-image--20 { max-width: 20%; }
+.markdown .doc-image--25 { max-width: 25%; }
+.markdown .doc-image--30 { max-width: 30%; }
+.markdown .doc-image--40 { max-width: 40%; }
+.markdown .doc-image--50 { max-width: 50%; }
+.markdown .doc-image--80 { max-width: 80%; }
+.markdown .doc-image--100 { max-width: 100%; }
+
+@media (max-width: 768px) {
+  .markdown img[class*='doc-image--'] {
+    max-width: 100%;
+  }
 }
 

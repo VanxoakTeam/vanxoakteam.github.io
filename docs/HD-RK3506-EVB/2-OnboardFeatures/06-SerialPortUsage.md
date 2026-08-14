@@ -14,8 +14,8 @@ sidebar_position: 6
 HD-RK3506-EVB开发板除了提供TTL电平的调试串口外，还提供了3个TTL电平的串口供用户使用：
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '0px', margin: '20px 0'}}>
-  <img src={require('./images/gpio.png').default} alt="开发板" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-  <img src={require('./images/06-serialportusage-02.png').default} alt="原理图" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/gpio.png').default} alt="开发板" className="doc-image--50" />
+  <img src={require('./images/06-serialportusage-02.png').default} alt="原理图" className="doc-image--50" />
 </div>
 
 串口引脚对应表如下所示：
@@ -26,7 +26,7 @@ HD-RK3506-EVB开发板除了提供TTL电平的调试串口外，还提供了3个
 | 12、16 | UART2 | TTL | /dev/ttyS2 |
 | 18、22 | UART3 | TTL | /dev/ttyS3 |
 
-  系统提供serial\_test程序可以对串口进行数据收发测试,该程序在运行时，需要提供一个命令行参数：对于原生串口该参数既可以是需要打开的串口名，如：“COM2”、“COM3”等；也可以是需要打开的设备名，如`/dev/ttyS4`、`/dev/ttyS5`等，该平台的tty命名规则为ttySx，所以不能用COMx作为参数来测试串口，只能用`/dev/ttySx`作为参数。
+系统提供serial\_test程序可以对串口进行数据收发测试,该程序在运行时，需要提供一个命令行参数：对于原生串口该参数既可以是需要打开的串口名，如：“COM2”、“COM3”等；也可以是需要打开的设备名，如`/dev/ttyS4`、`/dev/ttyS5`等，该平台的tty命名规则为ttySx，所以不能用COMx作为参数来测试串口，只能用`/dev/ttySx`作为参数。
 
 ```shell
 root@rk3506-buildroot:/# serial_test /dev/ttyS1 9600 0 8 1
@@ -43,6 +43,6 @@ root@rk3506-buildroot:/# serial_test /dev/ttyS1 9600 0 8 1
 
 -   使用镊子或其他工具短接UART1的Tx与Rx就能实现串口的自收自发测试
 
-<img src={require('./images/06-serialportusage-03.png').default} alt="image.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/06-serialportusage-03.png').default} alt="image.png" className="doc-image--80" />
 
-  串口1的自收自发测试
+串口1的自收自发测试

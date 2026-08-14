@@ -12,7 +12,7 @@ sidebar_position: 2
 
 ## 1. 快速启动连接图
 
-  用户可根据快速启动连接图进行连接。
+用户可根据快速启动连接图进行连接。
 
 ```mermaid
 flowchart TD
@@ -37,7 +37,7 @@ flowchart TD
 - 等待系统启动完成，当系统启动完成后，系统运行指示灯**蓝色灯闪烁**。
 - <span style={{ color: "#ff0000" }}>图中Type-C连接线，接入电脑USB口；或连接5V/1A电源。</span>
 
-<img src={require('./images/02-hardwareconnection-02.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" style={{display: 'block', margin: '20px auto', maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/02-hardwareconnection-02.png').default} alt="5304f141-1a09-4b83-b921-796a5bc33097.png" className="doc-image--50" />
 
 ### 2.2 串口连接
 
@@ -47,8 +47,8 @@ flowchart TD
 - 串口模块的 GND 接入 HD-RK3506-EVB的 GND（<span style={{ color: "\#ffc107" }}> 黄色杜邦线</span>）。
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '10px', margin: '20px 0'}}>
-  <img src={require('./images/02-hardwareconnection-03.png').default} alt="调试串口" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-  <img src={require('./images/02-hardwareconnection-04.png').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/02-hardwareconnection-03.png').default} alt="调试串口" className="doc-image--50" />
+  <img src={require('./images/02-hardwareconnection-04.png').default} alt="12s" className="doc-image--50" />
 </div>
 
 ​	系统启动后，将会从调试串口输出打印信息。
@@ -62,20 +62,20 @@ flowchart TD
 
 #### MIPI LCD
 
-  HD-RK3506-EVB 使用 32pin 同向排线连接 万象奥科适配的 7寸MIPI LCD屏幕
+HD-RK3506-EVB 使用 32-pin 同向排线连接万象奥科适配的 7 英寸 MIPI LCD 显示屏。
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '10px', margin: '20px 0'}}>
-  <img src={require('./images/mipi_lcd.jpg').default} alt="调试串口" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-  <img src={require('./images/mipi.jpg').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/mipi_lcd.jpg').default} alt="调试串口" className="doc-image--50" />
+  <img src={require('./images/mipi.jpg').default} alt="12s" className="doc-image--50" />
 </div>
 
 #### RGB LCD
 
-  HD-RK3506-EVB 使用 40pin 同向排线连接 万象奥科适配的 5寸RGB LCD屏幕
+HD-RK3506-EVB 使用 40-pin 同向排线连接万象奥科适配的 5 英寸 RGB LCD 显示屏。
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '10px', margin: '20px 0'}}>
-  <img src={require('./images/rgb_lcd.jpg').default} alt="调试串口" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
-  <img src={require('./images/rgb.jpg').default} alt="12s" style={{maxWidth: '50%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+  <img src={require('./images/rgb_lcd.jpg').default} alt="调试串口" className="doc-image--50" />
+  <img src={require('./images/rgb.jpg').default} alt="12s" className="doc-image--50" />
 </div>
 
 

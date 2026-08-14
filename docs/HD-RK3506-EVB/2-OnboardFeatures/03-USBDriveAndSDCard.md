@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# U盘与SD卡使用
+# U 盘与 SD 卡使用
 
 :::tip 提示
 
@@ -15,7 +15,7 @@ sidebar_position: 3
 
 #### 步骤 1：插入 U 盘
 
-  插入 U 盘后，会有如下打印信息
+插入 U 盘后，会有如下打印信息
 
 ```shell
 [ 3303.968899] usb 1-1.1: USB disconnect, device number 4
@@ -35,19 +35,19 @@ sidebar_position: 3
 [ 3474.094440] FAT-fs (sda): Filesystem has been set read-only
 ```
 
-  可以看到系统检测出一个设备 ，并发现该设备存在一个分区 ，自动挂载了这个分区，我们可以查看分区并往分区里写入内容。
+可以看到系统检测出一个设备 ，并发现该设备存在一个分区 ，自动挂载了这个分区，我们可以查看分区并往分区里写入内容。
 
-  执行以下指令，可以查看该分区的文件类型是什么
+执行以下指令，可以查看该分区的文件类型是什么
 
 ```shell
 fdisk -l /dev/sda
 ```
 
-<img src={require('./images/03-usbdriveandsdcard-01.png').default} alt="企业微信截图_17840143757494.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-usbdriveandsdcard-01.png').default} alt="企业微信截图_17840143757494.png" className="doc-image--80" />
 
 #### 步骤 2：查看分区
 
-  使用 df -h 命令查看 U 盘目录
+使用 df -h 命令查看 U 盘目录
 
 ```shell
 root@rk3506-buildroot:/# df -h
@@ -56,7 +56,7 @@ Filesystem                Size      Used Available Use% Mounted on
 /dev/sda1                14.7G    920.0K     14.7G   0% /mnt/udisk
 ```
 
-  可以看到 U 盘目录 /mnt/udisk，进入目录，查看 U 盘内容
+可以看到 U 盘目录 /mnt/udisk，进入目录，查看 U 盘内容
 
 ```shell
 root@rk3506-buildroot:/# cd /mnt/udisk/
@@ -66,7 +66,7 @@ System Volume Information
 
 #### 步骤 3：创建文件
 
-  进入 U 盘目录，创建文件，并往文件里写内容
+进入 U 盘目录，创建文件，并往文件里写内容
 
 ```shell
 root@rk3506-buildroot:/mnt/udisk# touch test.txt
@@ -77,15 +77,15 @@ root@rk3506-buildroot:/mnt/udisk# cat test.txt
 hello
 ```
 
-  拔出 U 盘，插入 Windows，查看如下：
+拔出 U 盘，插入 Windows，查看如下：
 
-<img src={require('./images/03-usbdriveandsdcard-02.png').default} alt="企业微信截图_17840146755001.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-usbdriveandsdcard-02.png').default} alt="企业微信截图_17840146755001.png" className="doc-image--80" />
 
 ## 2. SD 卡的使用
 
 #### 步骤 1：插入 SD 卡
 
-  插入 SD 卡后，会有如下打印信息
+插入 SD 卡后，会有如下打印信息
 
 ```shell
 [ 4752.026662] mmc0: card 0001 removed
@@ -101,19 +101,19 @@ hello
 [ 4754.628412] FAT-fs (mmcblk0): Filesystem has been set read-only
 ```
 
-  可以看到系统检测出一个设备 ，并发现该设备存在一个分区 ，自动挂载了这个分区，我们可以查看分区并往分区里写入内容。
+可以看到系统检测出一个设备 ，并发现该设备存在一个分区 ，自动挂载了这个分区，我们可以查看分区并往分区里写入内容。
 
-  执行以下指令，可以查看该分区的文件类型是什么
+执行以下指令，可以查看该分区的文件类型是什么
 
 ```shell
 fdisk -l /dev/mmcblk0
 ```
 
-<img src={require('./images/03-usbdriveandsdcard-03.png').default} alt="企业微信截图_1784014946581.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-usbdriveandsdcard-03.png').default} alt="企业微信截图_1784014946581.png" className="doc-image--80" />
 
 #### 步骤 2：查看分区
 
-  使用 df -h 命令查看 SD 卡目录
+使用 df -h 命令查看 SD 卡目录
 
 ```shell
 root@rk3506-buildroot:/# df -h
@@ -122,7 +122,7 @@ Filesystem                Size      Used Available Use% Mounted on
 /dev/mmcblk0p1           14.7G     40.0K     14.7G   0% /mnt/sdcard
 ```
 
-  可以看到 SD 卡目录 /mnt/sdcard，进入目录，查看 SD 卡内容
+可以看到 SD 卡目录 /mnt/sdcard，进入目录，查看 SD 卡内容
 
 ```shell
 root@rk3506-buildroot:/# cd /mnt/sdcard/
@@ -132,7 +132,7 @@ System Volume Information
 
 #### 步骤 3：创建文件
 
-  进入 SD 卡目录，创建文件，并往文件里写内容
+进入 SD 卡目录，创建文件，并往文件里写内容
 
 ```shell
 root@rk3506-buildroot:/mnt/sdcard# touch test.txt
@@ -143,6 +143,6 @@ root@rk3506-buildroot:/mnt/sdcard# cat test.txt
 hi
 ```
 
-  拔出 U 盘，插入 Windows，查看如下：
+拔出 U 盘，插入 Windows，查看如下：
 
-<img src={require('./images/03-usbdriveandsdcard-04.png').default} alt="企业微信截图_17840153412576.png" style={{display: 'block', margin: '20px auto', maxWidth: '80%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)'}}/>
+<img src={require('./images/03-usbdriveandsdcard-04.png').default} alt="企业微信截图_17840153412576.png" className="doc-image--80" />
