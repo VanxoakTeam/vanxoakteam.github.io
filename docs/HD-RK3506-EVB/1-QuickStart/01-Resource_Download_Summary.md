@@ -18,10 +18,10 @@ sidebar_position: 1
 
 | 类目             | 系统          | 存储     | 下载                                                         | 备注                                      |
 | ---------------- | ------------- | -------- | ------------------------------------------------------------ | ----------------------------------------- |
-| ⚙系统固件        | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-20260617.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
-|                  | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-20260617.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
-|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-SD-20260617.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
-|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-SD-20260617.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
+| ⚙系统固件        | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-20261117.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
+|                  | 📘 Linux       | NAND     | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-20261117.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
+|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-800x480-RGB-SD-20261117.zip) | 适配 **5 英寸 RGB** 显示屏，分辨率为 800×480   |
+|                  | 📘 Linux       | SD 卡启动 | [点击下载](https://download.vanxoak.com/files/products/hd-rk3506-evb/firmware/HD-RK3506G-EVB-1024x600-MIPI-SD-20261117.zip) | 适配 **7 英寸 MIPI** 显示屏，分辨率为 1024×600 |
 | 🛠 刷机软件及驱动 | 📒 刷机软件    |          | [点击下载](https://download.vanxoak.com/files/common/tools/RKDevTool_Release_v3.32.zip) | RKDevTool_Release_v3.32.zip               |
 |                  | 📒 刷机驱动    |          | [点击下载](https://download.vanxoak.com/files/common/tools/DriverAssitant_v5.13.zip) | DriverAssitant_v5.13.zip                  |
 | 🛠 SDK 开发       | 📒 SDK 源码    |          | [进入 SDK 下载目录](https://download.vanxoak.com/products/hd-rk3506-evb/sdk/) | 提供完整包、基础包+HD-RK3506-EVB补丁包             |
@@ -68,6 +68,7 @@ sidebar_position: 1
 
 | 更新日期   | 更新内容说明                              |
 | ---------- | ----------------------------------------- |
+| 2026/11/18 | 更新固件、SDK等内容 |
 | 2026/08/13 | 硬件资料、固件、工具链及开发工具下载链接统一迁移到万象奥科下载中心 |
 | 2026/07/23 | 更新上传SDK、固件，上传软件资料、硬件资料 |
 

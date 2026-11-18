@@ -45,9 +45,9 @@ sidebar_position: 1
 | SDK 版本 | v1.2.0 |
 | 发布日期 | 2026-07-22 |
 | 文件大小 | 约 9.6 GiB |
-| MD5 | `cef0bf4e551382278a390038848cdb51` |
+| MD5 | `1435d3fd05e0cc935fefee99d69705ee` |
 
-[下载完整 SDK 源码包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/all/rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz)
+[下载完整 SDK 源码包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/all/rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz)
 
 也可以在 Ubuntu 开发主机中使用 `wget` 断点续传：
 
@@ -56,8 +56,8 @@ mkdir -p ~/rk3506-downloads ~/rk3506-work
 cd ~/rk3506-downloads
 
 wget -c \
-  -O rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz \
-  'https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/all/rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz'
+  -O rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz \
+  'https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/all/rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz'
 ```
 
 下载完成后校验文件：
@@ -65,20 +65,20 @@ wget -c \
 ```bash
 cd ~/rk3506-downloads
 
-echo 'cef0bf4e551382278a390038848cdb51  rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz' \
+echo '1435d3fd05e0cc935fefee99d69705ee  rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz' \
   | md5sum -c -
 ```
 
 出现以下提示表示文件完整：
 
 ```text
-rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz: OK
+rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz: 成功
 ```
 
 解压并进入 SDK 根目录：
 
 ```bash
-tar -xzf ~/rk3506-downloads/rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz \
+tar -xzf ~/rk3506-downloads/rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz \
   -C ~/rk3506-work
 
 cd ~/rk3506-work/rk3506_linux6.1_sdk_v1.2.0_evb
@@ -93,10 +93,10 @@ cd ~/rk3506-work/rk3506_linux6.1_sdk_v1.2.0_evb
 | 文件 | 用途 | 大小 | MD5 |
 | --- | --- | ---: | --- |
 | [基础 SDK 源码包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/base/rk3506_linux6.1_sdk_v1.2.0_evb_base_20260722.tar.gz) | RK3506 Linux 6.1 v1.2.0 基础源码 | 约 8.8 GiB | `4aab0364dcd387f16604fede3706b473` |
-| [HD-RK3506-EVB 配套包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/base/hd-rk3506-evb-extern-package-20260722.tar.gz) | 板级配置、设备树、内核配置及相关定制内容 | 约 35 MiB | `2a1b1ae4462b4a4f32cebbede7b0b582` |
+| [HD-RK3506-EVB 配套包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/base/hd-rk3506-evb-extern-package-20261118.tar.gz) | 板级配置、设备树、内核配置及相关定制内容 | 约 35 MiB | `12929225527dd2936e31636049d28a44` |
 | [Buildroot dl 离线软件包](https://download.vanxoak.com/files/products/hd-rk3506-evb/sdk/dl/dl.tar.gz) | Buildroot 构建所需的源码下载缓存，网络受限时建议使用 | 约 720 MiB | `870ebc6f32cd838be9db4d2afacd5f68` |
 
-其中，基础 SDK 和 HD-RK3506-EVB 配套包为必需项；`dl.tar.gz` 为可选项，但在无法稳定访问外部源码站点时建议一并下载。
+其中，基础 SDK 和 HD-RK3506-EVB 配套包为必需项；`dl.tar.gz` 为可选项，在无法稳定访问外部源码站点时建议一并下载。
 
 #### 1.3.2 校验文件
 
@@ -106,7 +106,7 @@ cd ~/rk3506-work/rk3506_linux6.1_sdk_v1.2.0_evb
 cd ~/rk3506-downloads
 
 echo '4aab0364dcd387f16604fede3706b473  rk3506_linux6.1_sdk_v1.2.0_evb_base_20260722.tar.gz' | md5sum -c -
-echo '2a1b1ae4462b4a4f32cebbede7b0b582  hd-rk3506-evb-extern-package-20260722.tar.gz' | md5sum -c -
+echo '12929225527dd2936e31636049d28a44  hd-rk3506-evb-extern-package-20261118.tar.gz' | md5sum -c -
 echo '870ebc6f32cd838be9db4d2afacd5f68  dl.tar.gz' | md5sum -c -
 ```
 
@@ -132,7 +132,7 @@ tar -xzf ~/rk3506-downloads/rk3506_linux6.1_sdk_v1.2.0_evb_base_20260722.tar.gz 
 先将配套包解压到工作目录：
 
 ```bash
-tar -xzf ~/rk3506-downloads/hd-rk3506-evb-extern-package-20260722.tar.gz \
+tar -xzf ~/rk3506-downloads/hd-rk3506-evb-extern-package-20261118.tar.gz \
   -C ~/rk3506-work
 ```
 
