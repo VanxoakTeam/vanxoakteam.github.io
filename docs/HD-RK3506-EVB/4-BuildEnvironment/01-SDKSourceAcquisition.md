@@ -41,7 +41,7 @@ sidebar_position: 1
 
 | 项目 | 内容 |
 | --- | --- |
-| 文件名 | `rk3506_linux6.1_sdk_v1.2.0_evb_all_20260722.tar.gz` |
+| 文件名 | `rk3506_linux6.1_sdk_v1.2.0_evb_all_20261118_MD5_1435d3fd05e0cc935fefee99d69705ee.tar.gz` |
 | SDK 版本 | v1.2.0 |
 | 发布日期 | 2026-07-22 |
 | 文件大小 | 约 9.6 GiB |
